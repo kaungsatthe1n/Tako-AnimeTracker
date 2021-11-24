@@ -1,0 +1,170 @@
+{
+  "request_hash": "request:anime:020910d6f8a43690de5d18853a17355e2157762e",
+  "request_cached": true,
+  "request_cache_expiry": 25577,
+  "mal_id": 48583,
+  "url": "https://myanimelist.net/anime/48583/Shingeki_no_Kyojin__The_Final_Season_Part_2",
+  "image_url": "https://cdn.myanimelist.net/images/anime/1988/119437.jpg",
+  "trailer_url": "https://www.youtube.com/embed/jRVKBrJ7X-o?enablejsapi=1&wmode=opaque&autoplay=1",
+  "title": "Shingeki no Kyojin: The Final Season Part 2",
+  "title_english": "Attack on Titan Final Season Part 2",
+  "title_japanese": "\u9032\u6483\u306e\u5de8\u4eba The Final Season Part 2",
+  "title_synonyms": ["Shingeki no Kyojin Season 4", "Attack on Titan Season 4"],
+  "type": "TV",
+  "source": "Manga",
+  "episodes": null,
+  "status": "Not yet aired",
+  "airing": false,
+  "aired": {
+    "from": "2022-01-10T00:00:00+00:00",
+    "to": null,
+    "prop": {
+      "from": { "day": 10, "month": 1, "year": 2022 },
+      "to": { "day": null, "month": null, "year": null }
+    },
+    "string": "Jan 10, 2022 to ?"
+  },
+  "duration": "Unknown",
+  "rating": "R - 17+ (violence & profanity)",
+  "score": null,
+  "scored_by": null,
+  "rank": null,
+  "popularity": 454,
+  "members": 367972,
+  "favorites": 5617,
+  "synopsis": "Second part of Shingeki no Kyojin: The Final Season.",
+  "background": null,
+  "premiered": "Winter 2022",
+  "broadcast": "Mondays at 00:05 (JST)",
+  "related": {
+    "Adaptation": [
+      {
+        "mal_id": 23390,
+        "type": "manga",
+        "name": "Shingeki no Kyojin",
+        "url": "https://myanimelist.net/manga/23390/Shingeki_no_Kyojin"
+      }
+    ],
+    "Prequel": [
+      {
+        "mal_id": 40028,
+        "type": "anime",
+        "name": "Shingeki no Kyojin: The Final Season",
+        "url": "https://myanimelist.net/anime/40028/Shingeki_no_Kyojin__The_Final_Season"
+      }
+    ]
+  },
+  "producers": [
+    {
+      "mal_id": 10,
+      "type": "anime",
+      "name": "Production I.G",
+      "url": "https://myanimelist.net/anime/producer/10/Production_IG"
+    },
+    {
+      "mal_id": 53,
+      "type": "anime",
+      "name": "Dentsu",
+      "url": "https://myanimelist.net/anime/producer/53/Dentsu"
+    },
+    {
+      "mal_id": 143,
+      "type": "anime",
+      "name": "Mainichi Broadcasting System",
+      "url": "https://myanimelist.net/anime/producer/143/Mainichi_Broadcasting_System"
+    },
+    {
+      "mal_id": 144,
+      "type": "anime",
+      "name": "Pony Canyon",
+      "url": "https://myanimelist.net/anime/producer/144/Pony_Canyon"
+    },
+    {
+      "mal_id": 159,
+      "type": "anime",
+      "name": "Kodansha",
+      "url": "https://myanimelist.net/anime/producer/159/Kodansha"
+    },
+    {
+      "mal_id": 1557,
+      "type": "anime",
+      "name": "Pony Canyon Enterprise",
+      "url": "https://myanimelist.net/anime/producer/1557/Pony_Canyon_Enterprise"
+    }
+  ],
+  "licensors": [],
+  "studios": [
+    {
+      "mal_id": 569,
+      "type": "anime",
+      "name": "MAPPA",
+      "url": "https://myanimelist.net/anime/producer/569/MAPPA"
+    }
+  ],
+  "genres": [
+    {
+      "mal_id": 1,
+      "type": "anime",
+      "name": "Action",
+      "url": "https://myanimelist.net/anime/genre/1/Action"
+    },
+    {
+      "mal_id": 8,
+      "type": "anime",
+      "name": "Drama",
+      "url": "https://myanimelist.net/anime/genre/8/Drama"
+    },
+    {
+      "mal_id": 10,
+      "type": "anime",
+      "name": "Fantasy",
+      "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+    },
+    {
+      "mal_id": 7,
+      "type": "anime",
+      "name": "Mystery",
+      "url": "https://myanimelist.net/anime/genre/7/Mystery"
+    }
+  ],
+  "explicit_genres": [],
+  "demographics": [
+    {
+      "mal_id": 27,
+      "type": "anime",
+      "name": "Shounen",
+      "url": "https://myanimelist.net/anime/genre/27/Shounen"
+    }
+  ],
+  "themes": [
+    {
+      "mal_id": 38,
+      "type": "anime",
+      "name": "Military",
+      "url": "https://myanimelist.net/anime/genre/38/Military"
+    },
+    {
+      "mal_id": 31,
+      "type": "anime",
+      "name": "Super Power",
+      "url": "https://myanimelist.net/anime/genre/31/Super_Power"
+    }
+  ],
+  "opening_themes": [],
+  "ending_themes": [],
+  "external_links": [
+    { "name": "Official Site", "url": "https://shingeki.tv/final/" },
+    {
+      "name": "AnimeDB",
+      "url": "http://anidb.info/perl-bin/animedb.pl?show=anime&aid=16177"
+    },
+    {
+      "name": "AnimeNewsNetwork",
+      "url": "http://www.animenewsnetwork.com/encyclopedia/anime.php?id=24648"
+    },
+    {
+      "name": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Attack_on_Titan_(season_4)"
+    }
+  ]
+}

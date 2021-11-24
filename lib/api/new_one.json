@@ -1,0 +1,66 @@
+{
+  "request_hash": "request:anime:cbb2866ca9a0182d0e70141bb4cd11d96cc4d196",
+  "request_cached": true,
+  "request_cache_expiry": 170339,
+  "mal_id": 48892,
+  "url": "https://myanimelist.net/anime/48892/Yoshimaho",
+  "image_url": "https://cdn.myanimelist.net/images/anime/1962/114761.jpg",
+  "trailer_url": null,
+  "title": "Yoshimaho",
+  "title_english": "Yoshi Yoshi Magic",
+  "title_japanese": "\u3088\u3057\u307e\u307b",
+  "title_synonyms": [],
+  "type": "ONA",
+  "source": "Original",
+  "episodes": null,
+  "status": "Currently Airing",
+  "airing": true,
+  "aired": {
+    "from": "2021-07-01T00:00:00+00:00",
+    "to": null,
+    "prop": {
+      "from": { "day": 1, "month": 7, "year": 2021 },
+      "to": { "day": null, "month": null, "year": null }
+    },
+    "string": "Jul 1, 2021 to ?"
+  },
+  "duration": "Unknown",
+  "rating": "None",
+  "score": null,
+  "scored_by": null,
+  "rank": 14537,
+  "popularity": 9018,
+  "members": 2368,
+  "favorites": 11,
+  "synopsis": "Exhausted by your daily life, you were seeking a way to heal. You wanted to be kindly praised and comforted. \"Toddlers can be legally fawned over, they're so lucky...\" Such thoughts were an escape from reality. One day, you bought a blue pacifier from a general store. When you popped it into your mouth, you were engulfed by a mysterious light. Before you knew it, you were reincarnated in another world as a five-year-old child! (Source: MAL News)",
+  "background": null,
+  "premiered": null,
+  "broadcast": null,
+  "related": {},
+  "producers": [],
+  "licensors": [],
+  "studios": [
+    {
+      "mal_id": 276,
+      "type": "anime",
+      "name": "DLE",
+      "url": "https://myanimelist.net/anime/producer/276/DLE"
+    }
+  ],
+  "genres": [
+    {
+      "mal_id": 36,
+      "type": "anime",
+      "name": "Slice of Life",
+      "url": "https://myanimelist.net/anime/genre/36/Slice_of_Life"
+    }
+  ],
+  "explicit_genres": [],
+  "demographics": [],
+  "themes": [],
+  "opening_themes": [],
+  "ending_themes": [],
+  "external_links": [
+    { "name": "Official Site", "url": "https://yoshimaho.com/" }
+  ]
+}

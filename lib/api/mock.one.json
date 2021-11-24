@@ -1,0 +1,109 @@
+{
+  "request_hash": "request:anime:545cda6c51e1716b945b9fd9efef9ba74dc6b155",
+  "request_cached": true,
+  "request_cache_expiry": 102743,
+  "mal_id": 48556,
+  "url": "https://myanimelist.net/anime/48556/Takt_Op_Destiny",
+  "image_url": "https://cdn.myanimelist.net/images/anime/1449/117797.jpg",
+  "trailer_url": "https://www.youtube.com/embed/Mb0k1HLm3Ls?enablejsapi=1&wmode=opaque&autoplay=1",
+  "title": "Takt Op. Destiny",
+  "title_english": null,
+  "title_japanese": "takt op.Destiny",
+  "title_synonyms": [],
+  "type": "TV",
+  "source": "Other",
+  "episodes": null,
+  "status": "Currently Airing",
+  "airing": true,
+  "aired": {
+    "from": "2021-10-06T00:00:00+00:00",
+    "to": null,
+    "prop": {
+      "from": { "day": 6, "month": 10, "year": 2021 },
+      "to": { "day": null, "month": null, "year": null }
+    },
+    "string": "Oct 6, 2021 to ?"
+  },
+  "duration": "23 min",
+  "rating": "PG-13 - Teens 13 or older",
+  "score": 7.82,
+  "scored_by": 45165,
+  "rank": 818,
+  "popularity": 627,
+  "members": 278168,
+  "favorites": 2676,
+  "synopsis": "The United States of America has been in chaos ever since the emergence of D2s, an invasive species originating from a black meteorite that fell to Earth. A public decree banned citizens from playing any melodies, to prevent further casualties caused by the D2s' hatred for music\u2014even now, in 2047, this prohibition is still in effect. Humanity's only form of defense against the D2s are Musicarts, young women representing pieces of classical music; and Conductors, the ones controlling them. Takt Asahina, an aloof piano prodigy, finds himself transformed into a Conductor following a spontaneous D2 attack. The same incident kills Anna Schneider's younger sister, Cosette, and brings Takt into contact with his Musicart, Destiny. Searching for a means of stabilizing the pact between themselves, Takt and Destiny\u2014alongside Anna\u2014embark on a perilous journey to the Symphonica Headquarters in New York City. Takt is in a hurry to reach the city so that he can play the piano again, even though his passion attracts the creatures he has come to despise. Meanwhile, Destiny's sense of duty drags the group into trouble along the way. With a D2-infested path and many more arduous obstacles ahead of them, will the trio make it to New York City in one piece? [Written by MAL Rewrite]",
+  "background": "Takt Op. Destiny is a mixed-media project centered on classical music, created by Bandai Namco Arts and DeNA. Under the same umbrella, a Japanese RPG for smartphones is being developed by Game Studio. The game, titled Takt Op. Unmei wa Akaki Senritsu no Machi o, was made available for pre-registration in March 2021 and is expected to be released by the end of the same calendar year.",
+  "premiered": "Fall 2021",
+  "broadcast": "Wednesdays at 00:00 (JST)",
+  "related": {},
+  "producers": [
+    {
+      "mal_id": 1576,
+      "type": "anime",
+      "name": "DeNA",
+      "url": "https://myanimelist.net/anime/producer/1576/DeNA"
+    },
+    {
+      "mal_id": 1840,
+      "type": "anime",
+      "name": "Bandai Namco Arts",
+      "url": "https://myanimelist.net/anime/producer/1840/Bandai_Namco_Arts"
+    }
+  ],
+  "licensors": [],
+  "studios": [
+    {
+      "mal_id": 11,
+      "type": "anime",
+      "name": "Madhouse",
+      "url": "https://myanimelist.net/anime/producer/11/Madhouse"
+    },
+    {
+      "mal_id": 569,
+      "type": "anime",
+      "name": "MAPPA",
+      "url": "https://myanimelist.net/anime/producer/569/MAPPA"
+    }
+  ],
+  "genres": [
+    {
+      "mal_id": 1,
+      "type": "anime",
+      "name": "Action",
+      "url": "https://myanimelist.net/anime/genre/1/Action"
+    },
+    {
+      "mal_id": 10,
+      "type": "anime",
+      "name": "Fantasy",
+      "url": "https://myanimelist.net/anime/genre/10/Fantasy"
+    }
+  ],
+  "explicit_genres": [],
+  "demographics": [],
+  "themes": [
+    {
+      "mal_id": 19,
+      "type": "anime",
+      "name": "Music",
+      "url": "https://myanimelist.net/anime/genre/19/Music"
+    }
+  ],
+  "opening_themes": [
+    "\"takt (\u30bf\u30af\u30c8)\" by ryo (supercell) feat. Mafumafu, gaku"
+  ],
+  "ending_themes": ["\"SYMPHONIA\" by Mika Nakashima"],
+  "external_links": [
+    { "name": "Official Site", "url": "https://anime.takt-op.jp/" },
+    {
+      "name": "AnimeDB",
+      "url": "http://anidb.info/perl-bin/animedb.pl?show=anime&aid=16168"
+    },
+    {
+      "name": "AnimeNewsNetwork",
+      "url": "http://www.animenewsnetwork.com/encyclopedia/anime.php?id=24192"
+    },
+    { "name": "Wikipedia", "url": "https://en.wikipedia.org/wiki/Takt_Op" }
+  ]
+}
