@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
 import 'package:tako/provider/navmanager.dart';
@@ -8,7 +9,10 @@ import 'package:tako/theme/tako_theme.dart';
 
 void main() {
   _setUpLogging();
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]).then((_) => runApp(const MyApp()));
 }
 
 void _setUpLogging() {
