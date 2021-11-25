@@ -155,6 +155,7 @@ Anime _$AnimeFromJson(Map<String, dynamic> json) => Anime(
       openingThemes: (json['opening_themes'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
+      premiered: json['premiered'] as String,
       popularity: json['popularity'] as int,
       producers: (json['producers'] as List<dynamic>)
           .map((e) => Producer.fromJson(e as Map<String, dynamic>))
@@ -179,6 +180,7 @@ Map<String, dynamic> _$AnimeToJson(Anime instance) => <String, dynamic>{
       'title_japanese': instance.titleJp,
       'type': instance.type,
       'episodes': instance.episodes,
+      'premiered': instance.premiered,
       'status': instance.status,
       'duration': instance.duration,
       'rating': instance.rating,

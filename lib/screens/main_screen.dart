@@ -16,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
     TrendingScreen(),
     Container(),
-    Container(),
+    // Container(),
 
     // SearchByGenreScreen(),
   ];
@@ -55,12 +55,12 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 label: 'Genres',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.settings,
-                ),
-                label: 'Home',
-              ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(
+              //     Icons.settings,
+              //   ),
+              //   label: 'Home',
+              // ),
             ],
           ),
           body: IndexedStack(

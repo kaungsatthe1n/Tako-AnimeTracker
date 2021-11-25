@@ -40,7 +40,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Provider.of<NavManager>(context,listen: false).goToNav(0);
+        Provider.of<NavManager>(context, listen: false).goToNav(0);
         return true;
       },
       child: Scaffold(
@@ -165,7 +165,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                                         navManager.goToNav(1);
                                         _goToElement(1);
                                       },
-                                      name: 'Trailers',
+                                      name: 'Premiered',
                                       selectedIndex: navManager.selectedIndex,
                                     ),
                                     const SizedBox(
@@ -220,7 +220,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                                     ),
                                   );
                                 } else if (navManager.selectedIndex == 1) {
-                                  return Container();
+                                  return Text(anime.toString());
                                 } else if (navManager.selectedIndex == 2) {
                                   return ListView.builder(
                                       itemCount: anime.studios.length,
@@ -394,17 +394,20 @@ class BrowseItem extends StatelessWidget {
 
 List<String> getThemeSongs(Anime anime) {
   List<String> totalResult = [];
-  totalResult.add('Opening Theme');
-  totalResult.add('');
-
-  for (var val in anime.openingThemes) {
-    totalResult.add(val);
+  if (anime.openingThemes.isNotEmpty) {
+    totalResult.add('Opening Theme');
+    totalResult.add('');
+    for (var val in anime.openingThemes) {
+      totalResult.add(val);
+    }
+    totalResult.add('');
   }
-  totalResult.add('');
-  totalResult.add('Ending Theme');
-  totalResult.add('');
-  for (var val in anime.endingThemes) {
-    totalResult.add(val);
+  if (anime.endingThemes.isNotEmpty) {
+    totalResult.add('Ending Theme');
+    totalResult.add('');
+    for (var val in anime.endingThemes) {
+      totalResult.add(val);
+    }
   }
 
   return totalResult;

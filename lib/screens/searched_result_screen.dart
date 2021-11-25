@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:tako/models/anime_model.dart';
 import 'package:tako/screens/anime_detail_screen.dart';
 import 'package:tako/services/anime_service.dart';
+import 'package:tako/theme/tako_theme.dart';
+import 'package:tako/util/constant.dart';
 
 class SearchResultScreen extends StatefulWidget {
   const SearchResultScreen({Key? key}) : super(key: key);
@@ -35,9 +37,6 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                 ),
                 onPressed: () {
                   _controller.clear();
-                  setState(() {
-                    hasValue = false;
-                  });
                 },
               ),
               hintText: 'Search...',
@@ -60,75 +59,126 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                   );
                 }
                 if (snapshot.connectionState == ConnectionState.done) {
-                  return ListView.builder(
-                      // padding: const EdgeInsets.symmetric(vertical: 10),
-                      itemCount: snapshot.data!.body!.results.length,
-                      itemBuilder: (context, index) {
-                        final body = snapshot.data!.body;
-                        final anime = body!.results[index];
-
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => AnimeDetailScreen(
-                                    id: anime.id, imageUrl: anime.imageUrl)));
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.symmetric(vertical: 20),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 10),
-                                      child: CachedNetworkImage(
-                                        imageUrl: anime.imageUrl,
-                                        fit: BoxFit.cover,
-                                        width: 150,
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Container(
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              anime.title,
-                                              style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 18,
-                                              ),
-                                            ),
-                                            Text(
-                                              anime.rated,
-                                              style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 18,
-                                              ),
-                                            ),
-                                            Text(
-                                              anime.episodes.toString(),
-                                              style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 18,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.blue.shade900,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 20),
+                        child: RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text: 'Search :  ',
+                              style: TakoTheme.darkTextTheme.headline1,
                             ),
-                          ),
-                        );
-                      });
+                            TextSpan(
+                              text: '$value',
+                              style: TakoTheme.darkTextTheme.headline4,
+                            ),
+                          ]),
+                        ),
+                      ),
+                      Expanded(
+                        child: ListView.builder(
+                            // padding: const EdgeInsets.symmetric(vertical: 10),
+                            itemCount: snapshot.data!.body!.results.length,
+                            itemBuilder: (context, index) {
+                              final body = snapshot.data!.body;
+                              final anime = body!.results[index];
+
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => AnimeDetailScreen(
+                                          id: anime.id,
+                                          imageUrl: anime.imageUrl)));
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    gradient: const LinearGradient(
+                                        colors: [
+                                          tkDarkGreen,
+                                          tkDarkBlue,
+                                        ],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight),
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  margin: const EdgeInsets.symmetric(
+                                      vertical: 20, horizontal: 20),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            child: CachedNetworkImage(
+                                              imageUrl: anime.imageUrl,
+                                              fit: BoxFit.cover,
+                                              width: 100,
+                                              height: 150,
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Container(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 20),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  const SizedBox(
+                                                    height: 8,
+                                                  ),
+                                                  Text(
+                                                    anime.title,
+                                                    style: TakoTheme
+                                                        .darkTextTheme
+                                                        .headline2,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10,
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      const Icon(
+                                                        Icons.star,
+                                                        color: tkLightGreen,
+                                                      ),
+                                                      const SizedBox(
+                                                        width: 5,
+                                                      ),
+                                                      Text(
+                                                        'Rating : ${anime.score.toString()}',
+                                                        style: const TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 18,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }),
+                      ),
+                    ],
+                  );
                 } else {
                   return const Center(
                     child: CircularProgressIndicator(),

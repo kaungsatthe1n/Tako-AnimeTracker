@@ -171,6 +171,7 @@ class Anime {
   String titleJp;
   String type;
   int episodes;
+  String premiered;
   String status;
   String duration;
   String rating;
@@ -198,6 +199,7 @@ class Anime {
     required this.endingThemes,
     required this.genres,
     required this.openingThemes,
+    required this.premiered,
     required this.popularity,
     required this.producers,
     required this.rating,
