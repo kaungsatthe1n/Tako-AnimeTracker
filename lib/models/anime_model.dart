@@ -170,17 +170,17 @@ class Anime {
   @JsonKey(name: 'title_japanese')
   String titleJp;
   String type;
-  int episodes;
-  String premiered;
+  int? episodes;
+  String? premiered;
   String status;
   String duration;
   String rating;
   double score;
   int rank;
   int popularity;
-  String synopsis;
+  String? synopsis;
   List<Producer> producers;
-  List<Studio> studios;
+  List<Studio>? studios;
   List<Genre> genres;
   @JsonKey(name: 'opening_themes')
   List<String> openingThemes;

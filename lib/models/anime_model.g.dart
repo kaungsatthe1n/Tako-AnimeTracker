@@ -138,7 +138,7 @@ Map<String, dynamic> _$VoiceActorToJson(VoiceActor instance) =>
     };
 
 Anime _$AnimeFromJson(Map<String, dynamic> json) => Anime(
-      episodes: json['episodes'] as int,
+      episodes: json['episodes'] as int?,
       id: json['mal_id'] as int,
       imageUrl: json['image_url'] as String,
       rank: json['rank'] as int,
@@ -155,17 +155,17 @@ Anime _$AnimeFromJson(Map<String, dynamic> json) => Anime(
       openingThemes: (json['opening_themes'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
-      premiered: json['premiered'] as String,
+      premiered: json['premiered'] as String?,
       popularity: json['popularity'] as int,
       producers: (json['producers'] as List<dynamic>)
           .map((e) => Producer.fromJson(e as Map<String, dynamic>))
           .toList(),
       rating: json['rating'] as String,
       status: json['status'] as String,
-      studios: (json['studios'] as List<dynamic>)
-          .map((e) => Studio.fromJson(e as Map<String, dynamic>))
+      studios: (json['studios'] as List<dynamic>?)
+          ?.map((e) => Studio.fromJson(e as Map<String, dynamic>))
           .toList(),
-      synopsis: json['synopsis'] as String,
+      synopsis: json['synopsis'] as String?,
       titleJp: json['title_japanese'] as String,
       trailerUrl: json['trailer_url'] as String,
       type: json['type'] as String,

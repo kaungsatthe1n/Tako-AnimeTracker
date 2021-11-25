@@ -57,7 +57,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                 );
               }
               if (snapshot.connectionState == ConnectionState.done) {
-                final anime = snapshot.data!.body!;
+                final anime = snapshot.data?.body!;
 
                 return Stack(
                   fit: StackFit.expand,
@@ -88,7 +88,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            anime.title,
+                            anime!.title,
                             style: TakoTheme.darkTextTheme.headline1,
                           ),
                           const SizedBox(
@@ -120,7 +120,9 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                               IconBox(
                                 title: 'Episodes',
                                 iconData: FontAwesomeIcons.film,
-                                value: anime.episodes.toString(),
+                                value: anime.episodes == null
+                                    ? 'Unknown'
+                                    : anime.episodes.toString(),
                               ),
                             ],
                           ),
@@ -144,7 +146,6 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                                 height: 40,
                                 child: ListView(
                                   controller: _scrollController,
-                                  restorationId: 'more',
                                   scrollDirection: Axis.horizontal,
                                   children: [
                                     NavItem(
@@ -216,17 +217,24 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                                 if (navManager.selectedIndex == 0) {
                                   return SingleChildScrollView(
                                     child: Text(
-                                      anime.synopsis,
+                                      anime.synopsis == null
+                                          ? ''
+                                          : anime.synopsis.toString(),
                                     ),
                                   );
                                 } else if (navManager.selectedIndex == 1) {
-                                  return Text(anime.toString());
+                                  return Text(anime.premiered == null
+                                      ? ''
+                                      : anime.premiered.toString());
                                 } else if (navManager.selectedIndex == 2) {
-                                  return ListView.builder(
-                                      itemCount: anime.studios.length,
-                                      itemBuilder: (context, index) {
-                                        return Text(anime.studios[index].name);
-                                      });
+                                  return anime.studios == null
+                                      ? Container()
+                                      : ListView.builder(
+                                          itemCount: anime.studios!.length,
+                                          itemBuilder: (context, index) {
+                                            return Text(
+                                                anime.studios![index].name);
+                                          });
                                 } else if (navManager.selectedIndex == 3) {
                                   return ListView.builder(
                                       itemCount: getThemeSongs(anime).length,
