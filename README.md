@@ -1,6 +1,6 @@
 # Tako Anime Tracker
 
-<h4 align="center">An Android App to Track Your Custom Anime in One Place.</h4>
+<p><h4 align="center">An Android App to Track Your Custom Anime in One Place.</h4> <img src="/andriod/app/src/main/githubLogo/kurosaki.png" width="50"></p>
 
 ## Getting Started
 
