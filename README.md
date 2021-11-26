@@ -1,6 +1,6 @@
-# tako
+# Tako Anime Tracker
 
-A new Flutter project.
+<h4 align="center">An Android App to Track Your Custom Anime in One Place.</h4>
 
 ## Getting Started
 
