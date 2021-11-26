@@ -1,7 +1,7 @@
 # Tako Anime Tracker
 
 <p>
-<img src="https://toppng.com/uploads/preview/naruto-small-11549477147qrrafynkrc.png">
+<img src="https://www.seekpng.com/png/detail/163-1630384_rem-rezero-chibi-anime-rem-re-zero-chibi.png" width ="50>
 <h4 align="center">An Android App to Track Your Custom Anime in One Place.</h4> <img src="https://i.kym-cdn.com/photos/images/newsfeed/000/863/023/019.png" width="50"></p>
 
 ## Getting Started
