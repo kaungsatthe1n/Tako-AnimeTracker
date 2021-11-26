@@ -39,7 +39,7 @@ class VideoListScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.7),
@@ -54,15 +54,15 @@ class VideoListScreen extends StatelessWidget {
                       children: [
                         ClipRRect(
                           borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15),
                           ),
                           child: Container(
                             alignment: Alignment.center,
                             decoration: const BoxDecoration(
                               borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10),
-                                topRight: Radius.circular(10),
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15),
                               ),
                             ),
                             child: Stack(
@@ -90,8 +90,8 @@ class VideoListScreen extends StatelessWidget {
                                       decoration: const BoxDecoration(
                                         color: Colors.black38,
                                         borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(10),
-                                          topRight: Radius.circular(10),
+                                          topLeft: Radius.circular(15),
+                                          topRight: Radius.circular(15),
                                         ),
                                       ),
                                     ),
@@ -122,10 +122,10 @@ class VideoListScreen extends StatelessWidget {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                              color: tkLightGreen.withAlpha(200),
+                              color: tkLightGreen.withOpacity(.8),
                               borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
                               )),
                           alignment: Alignment.center,
                           height: 50,

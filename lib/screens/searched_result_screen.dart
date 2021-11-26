@@ -72,7 +72,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                               style: TakoTheme.darkTextTheme.headline1,
                             ),
                             TextSpan(
-                              text: '$value',
+                              text: value,
                               style: TakoTheme.darkTextTheme.headline4,
                             ),
                           ]),
@@ -95,6 +95,14 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.7),
+                                        spreadRadius: 5,
+                                        blurRadius: 7,
+                                        offset: const Offset(0, 3),
+                                      ),
+                                    ],
                                     gradient: const LinearGradient(
                                         colors: [
                                           tkDarkGreen,
