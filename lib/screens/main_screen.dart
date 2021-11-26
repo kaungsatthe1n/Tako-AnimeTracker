@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:tako/provider/tabmanager.dart';
 import 'package:tako/screens/search_by_genre.dart';
 import 'package:tako/screens/searched_result_screen.dart';
-import 'package:tako/screens/trending_screen.dart';
+import 'package:tako/screens/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
-    TrendingScreen(),
+    HomeScreen(),
     Container(),
     // Container(),
 

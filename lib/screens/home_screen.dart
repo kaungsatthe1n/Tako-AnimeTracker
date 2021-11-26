@@ -10,15 +10,18 @@ import 'package:tako/theme/tako_theme.dart';
 import 'package:tako/util/constant.dart';
 import 'package:tako/util/hero_page_route.dart';
 
-class TrendingScreen extends StatefulWidget {
-  const TrendingScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<TrendingScreen> createState() => _TrendingScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _TrendingScreenState extends State<TrendingScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   int currentPage = 1;
+  int defaultPage = 1;
+  bool categoryChanged = false;
+  int selectedCategory = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,11 @@ class _TrendingScreenState extends State<TrendingScreen> {
     const itemHeight = 300;
     final itemWidth = size.width / 2;
     return FutureBuilder<Response<APISeasonResult>>(
-        future: AnimeService.create().getCurrentSeasonList(currentPage),
+        future: selectedCategory == 1
+            ? AnimeService.create().getCurrentSeasonList(
+                categoryChanged ? defaultPage : currentPage)
+            : AnimeService.create()
+                .getUpComingList(categoryChanged ? defaultPage : currentPage),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Center(
@@ -74,9 +81,44 @@ class _TrendingScreenState extends State<TrendingScreen> {
                 Container(
                   margin:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  child: Text(
-                    'Trending',
-                    style: TakoTheme.darkTextTheme.headline1,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Popular',
+                        style: TakoTheme.darkTextTheme.headline1,
+                      ),
+                      DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                            icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                            dropdownColor: tkDarkBlue,
+                            value: selectedCategory,
+                            onChanged: (int? newCategory) {
+                              setState(() {
+                                selectedCategory = newCategory!;
+                                categoryChanged = true;
+                              });
+                            },
+                            items: [
+                              DropdownMenuItem(
+                                child: Text(
+                                  'Trending',
+                                  style: TakoTheme.darkTextTheme.headline3!
+                                      .copyWith(color: Colors.grey),
+                                ),
+                                value: 1,
+                              ),
+                              DropdownMenuItem(
+                                child: Text(
+                                  'Upcoming',
+                                  style: TakoTheme.darkTextTheme.headline3!
+                                      .copyWith(color: Colors.grey),
+                                ),
+                                value: 2,
+                              ),
+                            ]),
+                      ),
+                    ],
                   ),
                 ),
                 Expanded(
@@ -162,21 +204,28 @@ class _TrendingScreenState extends State<TrendingScreen> {
                         onPressed: () {
                           setState(() {
                             currentPage--;
+                            categoryChanged = false;
                           });
                         },
                         icon: const Icon(
                           Icons.keyboard_arrow_left_outlined,
-                          size: 20,
+                          size: 25,
+                          color: tkLightGreen,
                         )),
+                    const SizedBox(
+                      width: 80,
+                    ),
                     IconButton(
                         onPressed: () {
                           setState(() {
                             currentPage++;
+                            categoryChanged = false;
                           });
                         },
                         icon: const Icon(
                           Icons.keyboard_arrow_right_outlined,
-                          size: 20,
+                          size: 25,
+                          color: tkLightGreen,
                         )),
                   ],
                 )

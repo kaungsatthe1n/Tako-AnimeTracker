@@ -140,12 +140,12 @@ Map<String, dynamic> _$VoiceActorToJson(VoiceActor instance) =>
 Anime _$AnimeFromJson(Map<String, dynamic> json) => Anime(
       episodes: json['episodes'] as int?,
       id: json['mal_id'] as int,
-      imageUrl: json['image_url'] as String,
+      imageUrl: json['image_url'] as String?,
       rank: json['rank'] as int,
-      score: (json['score'] as num).toDouble(),
-      title: json['title'] as String,
-      url: json['url'] as String,
-      duration: json['duration'] as String,
+      score: (json['score'] as num?)?.toDouble(),
+      title: json['title'] as String?,
+      url: json['url'] as String?,
+      duration: json['duration'] as String?,
       endingThemes: (json['ending_themes'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
@@ -160,15 +160,15 @@ Anime _$AnimeFromJson(Map<String, dynamic> json) => Anime(
       producers: (json['producers'] as List<dynamic>)
           .map((e) => Producer.fromJson(e as Map<String, dynamic>))
           .toList(),
-      rating: json['rating'] as String,
-      status: json['status'] as String,
+      rating: json['rating'] as String?,
+      status: json['status'] as String?,
       studios: (json['studios'] as List<dynamic>?)
           ?.map((e) => Studio.fromJson(e as Map<String, dynamic>))
           .toList(),
       synopsis: json['synopsis'] as String?,
-      titleJp: json['title_japanese'] as String,
-      trailerUrl: json['trailer_url'] as String,
-      type: json['type'] as String,
+      titleJp: json['title_japanese'] as String?,
+      trailerUrl: json['trailer_url'] as String?,
+      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$AnimeToJson(Anime instance) => <String, dynamic>{

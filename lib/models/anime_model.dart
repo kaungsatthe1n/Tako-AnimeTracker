@@ -161,21 +161,21 @@ class VoiceActor {
 class Anime {
   @JsonKey(name: 'mal_id')
   int id;
-  String url;
+  String? url;
   @JsonKey(name: 'image_url')
-  String imageUrl;
+  String? imageUrl;
   @JsonKey(name: 'trailer_url')
-  String trailerUrl;
-  String title;
+  String? trailerUrl;
+  String? title;
   @JsonKey(name: 'title_japanese')
-  String titleJp;
-  String type;
+  String? titleJp;
+  String? type;
   int? episodes;
   String? premiered;
-  String status;
-  String duration;
-  String rating;
-  double score;
+  String? status;
+  String? duration;
+  String? rating;
+  double? score;
   int rank;
   int popularity;
   String? synopsis;

@@ -88,7 +88,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            anime!.title,
+                            anime?.title == null ? '' : anime!.title.toString(),
                             style: TakoTheme.darkTextTheme.headline1,
                           ),
                           const SizedBox(
@@ -100,12 +100,16 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                               IconBox(
                                 title: 'Rating',
                                 iconData: Icons.star,
-                                value: anime.score.toString(),
+                                value: anime?.score == null
+                                    ? 'Unknown'
+                                    : anime!.score.toString(),
                               ),
                               IconBox(
                                 title: 'Rank',
                                 iconData: FontAwesomeIcons.trophy,
-                                value: anime.rank.toString(),
+                                value: anime?.rank == null
+                                    ? 'Unknown'
+                                    : anime!.rank.toString(),
                               ),
                             ],
                           ),
@@ -115,29 +119,33 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                               IconBox(
                                 title: 'Duration',
                                 iconData: Icons.access_time_filled_sharp,
-                                value: anime.duration,
+                                value: anime?.duration == null
+                                    ? 'Unknown'
+                                    : anime!.duration.toString(),
                               ),
                               IconBox(
                                 title: 'Episodes',
                                 iconData: FontAwesomeIcons.film,
-                                value: anime.episodes == null
+                                value: anime?.episodes == null
                                     ? 'Unknown'
-                                    : anime.episodes.toString(),
+                                    : anime!.episodes.toString(),
                               ),
                             ],
                           ),
                           const SizedBox(
                             height: 30,
                           ),
-                          Wrap(
-                            spacing: 10,
-                            children: anime.genres
-                                .map((genre) => Chip(
-                                      label: Text(genre.name),
-                                      // backgroundColor: tkDarkGreen,
-                                    ))
-                                .toList(),
-                          ),
+                          anime?.genres == null
+                              ? Container()
+                              : Wrap(
+                                  spacing: 10,
+                                  children: anime!.genres
+                                      .map((genre) => Chip(
+                                            label: Text(genre.name),
+                                            // backgroundColor: tkDarkGreen,
+                                          ))
+                                      .toList(),
+                                ),
                           const Divider(),
                           Consumer<NavManager>(
                             builder: (BuildContext context, navManager,
@@ -217,27 +225,27 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                                 if (navManager.selectedIndex == 0) {
                                   return SingleChildScrollView(
                                     child: Text(
-                                      anime.synopsis == null
+                                      anime?.synopsis == null
                                           ? ''
-                                          : anime.synopsis.toString(),
+                                          : anime!.synopsis.toString(),
                                     ),
                                   );
                                 } else if (navManager.selectedIndex == 1) {
-                                  return Text(anime.premiered == null
+                                  return Text(anime?.premiered == null
                                       ? ''
-                                      : anime.premiered.toString());
+                                      : anime!.premiered.toString());
                                 } else if (navManager.selectedIndex == 2) {
-                                  return anime.studios == null
+                                  return anime?.studios == null
                                       ? Container()
                                       : ListView.builder(
-                                          itemCount: anime.studios!.length,
+                                          itemCount: anime!.studios!.length,
                                           itemBuilder: (context, index) {
                                             return Text(
                                                 anime.studios![index].name);
                                           });
                                 } else if (navManager.selectedIndex == 3) {
                                   return ListView.builder(
-                                      itemCount: getThemeSongs(anime).length,
+                                      itemCount: getThemeSongs(anime!).length,
                                       itemBuilder: (context, index) {
                                         return Text(
                                             getThemeSongs(anime)[index]);
@@ -251,7 +259,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                                               MaterialPageRoute(
                                                   builder: (context) =>
                                                       VoiceActorScreen(
-                                                        id: anime.id,
+                                                        id: anime!.id,
                                                       )));
                                         },
                                         title: 'Voice Actors',
@@ -275,7 +283,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                                               MaterialPageRoute(
                                                   builder: (context) =>
                                                       VideoListScreen(
-                                                        id: anime.id,
+                                                        id: anime!.id,
                                                       )));
                                         },
                                         title: 'Videos',
