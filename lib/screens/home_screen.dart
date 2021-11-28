@@ -168,17 +168,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                       filter: ImageFilter.blur(
                                           sigmaX: 10, sigmaY: 10),
                                       child: Container(
-                                        height: itemHeight * .2,
+                                        height: itemHeight * .25,
                                         alignment: Alignment.center,
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            Text(
-                                              list[index].title,
-                                              style: TakoTheme
-                                                  .darkTextTheme.headline3,
-                                              overflow: TextOverflow.ellipsis,
+                                            Container(
+                                              alignment: Alignment.center,
+                                              margin: const EdgeInsets.symmetric(
+                                                  horizontal: 10),
+                                              child: Text(
+                                                list[index].title,
+                                                style: TakoTheme
+                                                    .darkTextTheme.headline3,
+                                                overflow: TextOverflow.fade,
+                                                textAlign: TextAlign.center,
+                                                maxLines: 2,
+                                              ),
                                             ),
                                           ],
                                         ),
