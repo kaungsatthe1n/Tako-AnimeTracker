@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tako/models/anime_model.dart';
 import 'package:tako/screens/anime_detail_screen.dart';
 import 'package:tako/services/anime_service.dart';
@@ -25,14 +26,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final animeService = Provider.of<AnimeService>(context);
     final size = MediaQuery.of(context).size;
     const itemHeight = 300;
     final itemWidth = size.width / 2;
     return FutureBuilder<Response<APISeasonResult>>(
         future: selectedCategory == 1
-            ? AnimeService.create().getCurrentSeasonList(
+            ? animeService.getCurrentSeasonList(
                 categoryChanged ? defaultPage : currentPage)
-            : AnimeService.create()
+            : animeService
                 .getUpComingList(categoryChanged ? defaultPage : currentPage),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
@@ -176,8 +178,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                           children: [
                                             Container(
                                               alignment: Alignment.center,
-                                              margin: const EdgeInsets.symmetric(
-                                                  horizontal: 10),
+                                              margin:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 10),
                                               child: Text(
                                                 list[index].title,
                                                 style: TakoTheme
