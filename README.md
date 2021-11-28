@@ -1,6 +1,6 @@
 # Tako Anime Tracker
 
-<p align="center"><a href="https://github.com/kaungsatthe1n/Tako-AnimeTracker"><img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/logo.png?raw=true" width="150" style="border-radius:60%"></a></p> 
+<p align="center"><a href="https://github.com/kaungsatthe1n/Tako-AnimeTracker"><img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/logo.png?raw=true" width="150" height="150" style="border-radius:60%"></a></p> 
 
 <p>
 <img src="https://i.pinimg.com/originals/98/1c/d1/981cd18203c866a33869ca348c3d4d0c.png" width ="50">
