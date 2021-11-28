@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Tako Anime Tracker',
         theme: TakoTheme.dark(),
         home: const MainScreen(),
       ),
