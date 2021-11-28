@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tako/models/anime_model.dart';
 import 'package:tako/screens/youtubeview_screen.dart';
 import 'package:tako/services/anime_service.dart';
@@ -13,12 +14,13 @@ class VideoListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final animeService = Provider.of<AnimeService>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Videos'),
       ),
       body: FutureBuilder<Response<APIVideoResult>>(
-        future: AnimeService.create().getPromoVideo(id),
+        future: animeService.getPromoVideo(id),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Center(
