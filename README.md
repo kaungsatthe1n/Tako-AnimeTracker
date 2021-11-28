@@ -24,7 +24,7 @@ samples, guidance on mobile development, and a full API reference.
 Open Your `Terminal` and `Paste` 
 
 ``` bash
-git clone https://github.com/kaungsatthe1n/Tako-AnimeTracker.git
+$ git clone https://github.com/kaungsatthe1n/Tako-AnimeTracker.git
 ```
 ## Build Setup
 ``` bash
