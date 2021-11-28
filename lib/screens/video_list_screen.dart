@@ -14,13 +14,12 @@ class VideoListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final animeService = Provider.of<AnimeService>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Videos'),
       ),
       body: FutureBuilder<Response<APIVideoResult>>(
-        future: animeService.getPromoVideo(id),
+        future: Provider.of<AnimeService>(context).getPromoVideo(id),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return Center(

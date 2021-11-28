@@ -22,7 +22,6 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final animeService = Provider.of<AnimeService>(context);
     return Scaffold(
       appBar: AppBar(
         title: TextField(
@@ -53,7 +52,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
       ),
       body: hasValue
           ? FutureBuilder<Response<APIAnimeResult>>(
-              future: animeService.queryAnime(value),
+              future: Provider.of<AnimeService>(context).queryAnime(value),
               builder: (BuildContext context, snapshot) {
                 if (snapshot.hasError) {
                   return Center(

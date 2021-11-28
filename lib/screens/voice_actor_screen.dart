@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tako/models/anime_model.dart';
 import 'package:tako/services/anime_service.dart';
 import 'package:tako/theme/tako_theme.dart';
@@ -12,16 +13,12 @@ class VoiceActorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    const itemHeight = 300;
-    final itemWidth = size.width / 2;
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Voice Actors'),
       ),
       body: FutureBuilder<Response<APICharactersResult>>(
-          future: AnimeService.create().getCharacterList(id),
+          future: Provider.of<AnimeService>(context).getCharacterList(id),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return Text(snapshot.error.toString());
