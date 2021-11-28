@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tako/models/anime_model.dart';
 import 'package:tako/screens/anime_detail_screen.dart';
 import 'package:tako/services/anime_service.dart';
@@ -21,6 +22,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final animeService = Provider.of<AnimeService>(context);
     return Scaffold(
       appBar: AppBar(
         title: TextField(
@@ -51,7 +53,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
       ),
       body: hasValue
           ? FutureBuilder<Response<APIAnimeResult>>(
-              future: AnimeService.create().queryAnime(value),
+              future: animeService.queryAnime(value),
               builder: (BuildContext context, snapshot) {
                 if (snapshot.hasError) {
                   return Center(
