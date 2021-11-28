@@ -1,7 +1,7 @@
 # Tako Anime Tracker
 
 <p>
-<img src="https://i.pinimg.com/originals/98/1c/d1/981cd18203c866a33869ca348c3d4d0c.png" width ="50>
+<img src="https://i.pinimg.com/originals/98/1c/d1/981cd18203c866a33869ca348c3d4d0c.png" width ="50">
 <h4 align="center">An Android App to Track Your Custom Anime in One Place.</h4> <img src="https://i.kym-cdn.com/photos/images/newsfeed/000/863/023/019.png" width="50"></p>
 
 ## Getting Started
@@ -16,3 +16,17 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Clone Repository
+
+Open Your `Terminal` and `Paste` 
+
+`git clone https://github.com/kaungsatthe1n/Tako-AnimeTracker.git`
+
+## Build Setup
+``` bash
+
+# install dependencies 
+
+$ flutter pub get
+```
