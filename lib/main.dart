@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:tako/provider/navmanager.dart';
 import 'package:tako/provider/tabmanager.dart';
 import 'package:tako/screens/main_screen.dart';
+import 'package:tako/services/anime_service.dart';
 import 'package:tako/theme/tako_theme.dart';
 
 void main() {
@@ -31,6 +32,10 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => TabManager()),
         ChangeNotifierProvider(create: (_) => NavManager()),
+        Provider(
+          create: (_) => AnimeService.create(),
+          dispose: (_, AnimeService service) => service.client.dispose(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
