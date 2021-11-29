@@ -6,6 +6,7 @@ import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 import 'package:tako/models/anime_model.dart';
 import 'package:tako/provider/navmanager.dart';
 import 'package:tako/screens/video_list_screen.dart';
@@ -38,294 +39,322 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        Provider.of<NavManager>(context, listen: false).goToNav(0);
-        return true;
-      },
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text('Anime Detail'),
-        ),
-        body: FutureBuilder<Response<Anime>>(
-            future: AnimeService.create().getAnimeById(widget.id),
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                return Center(
-                  child: Text(snapshot.error.toString()),
-                );
-              }
-              if (snapshot.connectionState == ConnectionState.done) {
-                final anime = snapshot.data?.body!;
+    return Hero(
+      tag: widget.id,
+      child: WillPopScope(
+        onWillPop: () async {
+          Provider.of<NavManager>(context, listen: false).goToNav(0);
+          return true;
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            title: const Text('Anime Detail'),
+          ),
+          body: FutureBuilder<Response<Anime>>(
+              future: AnimeService.create().getAnimeById(widget.id),
+              builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text(snapshot.error.toString()),
+                  );
+                }
+                if (snapshot.connectionState == ConnectionState.done) {
+                  final anime = snapshot.data?.body!;
 
-                return Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    Positioned(
-                      child: CachedNetworkImage(
-                        imageUrl: widget.imageUrl,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    BackdropFilter(
-                      filter: ImageFilter.blur(
-                        sigmaX: 8,
-                        sigmaY: 8,
-                      ),
-                      child: Container(
-                        color: Colors.black87,
-                        width: double.infinity,
-                        height: MediaQuery.of(context).size.height,
-                      ),
-                    ),
-                    Positioned(
-                      top: 20,
-                      left: 30,
-                      right: 30,
-                      bottom: 0,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                  return SingleChildScrollView(
+                    child: SizedBox(
+                      height: 100.h,
+                      child: Stack(
+                        fit: StackFit.expand,
                         children: [
-                          Text(
-                            anime?.title == null ? '' : anime!.title.toString(),
-                            style: TakoTheme.darkTextTheme.headline1,
+                          Positioned(
+                            child: CachedNetworkImage(
+                              imageUrl: widget.imageUrl,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          const SizedBox(
-                            height: 20,
+                          BackdropFilter(
+                            filter: ImageFilter.blur(
+                              sigmaX: 8,
+                              sigmaY: 8,
+                            ),
+                            child: Container(
+                              color: Colors.black87,
+                              width: double.infinity,
+                              height: 100.h,
+                            ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              IconBox(
-                                title: 'Rating',
-                                iconData: Icons.star,
-                                value: anime?.score == null
-                                    ? 'Unknown'
-                                    : anime!.score.toString(),
-                              ),
-                              IconBox(
-                                title: 'Rank',
-                                iconData: FontAwesomeIcons.trophy,
-                                value: anime?.rank == null
-                                    ? 'Unknown'
-                                    : anime!.rank.toString(),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              IconBox(
-                                title: 'Duration',
-                                iconData: Icons.access_time_filled_sharp,
-                                value: anime?.duration == null
-                                    ? 'Unknown'
-                                    : anime!.duration.toString(),
-                              ),
-                              IconBox(
-                                title: 'Episodes',
-                                iconData: FontAwesomeIcons.film,
-                                value: anime?.episodes == null
-                                    ? 'Unknown'
-                                    : anime!.episodes.toString(),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          anime?.genres == null
-                              ? Container()
-                              : Wrap(
-                                  spacing: 10,
-                                  children: anime!.genres
-                                      .map((genre) => Chip(
-                                            label: Text(genre.name),
-                                            // backgroundColor: tkDarkGreen,
-                                          ))
-                                      .toList(),
+                          Positioned(
+                            top: 20,
+                            left: 30,
+                            right: 30,
+                            bottom: 0,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  anime?.title == null
+                                      ? ''
+                                      : anime!.title.toString(),
+                                  style: TakoTheme.darkTextTheme.headline1,
                                 ),
-                          const Divider(),
-                          Consumer<NavManager>(
-                            builder: (BuildContext context, navManager,
-                                Widget? child) {
-                              return SizedBox(
-                                height: 40,
-                                child: ListView(
-                                  controller: _scrollController,
-                                  scrollDirection: Axis.horizontal,
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    NavItem(
-                                      index: 0,
-                                      onTap: () {
-                                        navManager.goToNav(0);
-                                        _goToElement(0);
-                                      },
-                                      name: 'Synopsis',
-                                      selectedIndex: navManager.selectedIndex,
+                                    IconBox(
+                                      title: 'Rating',
+                                      iconData: Icons.star,
+                                      value: anime?.score == null
+                                          ? 'Unknown'
+                                          : anime!.score.toString(),
                                     ),
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-                                    NavItem(
-                                      index: 1,
-                                      onTap: () {
-                                        navManager.goToNav(1);
-                                        _goToElement(1);
-                                      },
-                                      name: 'Premiered',
-                                      selectedIndex: navManager.selectedIndex,
-                                    ),
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-                                    NavItem(
-                                      index: 2,
-                                      onTap: () {
-                                        navManager.goToNav(2);
-                                        _goToElement(2);
-                                      },
-                                      name: 'Studio',
-                                      selectedIndex: navManager.selectedIndex,
-                                    ),
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-                                    NavItem(
-                                      index: 3,
-                                      onTap: () {
-                                        navManager.goToNav(3);
-                                        _goToElement(3);
-                                      },
-                                      name: 'Theme Songs',
-                                      selectedIndex: navManager.selectedIndex,
-                                    ),
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-                                    NavItem(
-                                      index: 4,
-                                      onTap: () {
-                                        navManager.goToNav(4);
-                                        _goToElement(4);
-                                      },
-                                      name: 'More',
-                                      selectedIndex: navManager.selectedIndex,
+                                    IconBox(
+                                      title: 'Rank',
+                                      iconData: FontAwesomeIcons.trophy,
+                                      value: anime?.rank == null
+                                          ? 'Unknown'
+                                          : anime!.rank.toString(),
                                     ),
                                   ],
                                 ),
-                              );
-                            },
-                          ),
-                          const SizedBox(height: 10),
-                          Expanded(
-                            child: Consumer<NavManager>(
-                              builder: (context, navManager, child) {
-                                if (navManager.selectedIndex == 0) {
-                                  return SingleChildScrollView(
-                                    child: Text(
-                                      anime?.synopsis == null
-                                          ? ''
-                                          : anime!.synopsis.toString(),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    IconBox(
+                                      title: 'Duration',
+                                      iconData: Icons.access_time_filled_sharp,
+                                      value: anime?.duration == null
+                                          ? 'Unknown'
+                                          : anime!.duration.toString(),
                                     ),
-                                  );
-                                } else if (navManager.selectedIndex == 1) {
-                                  return Text(anime?.premiered == null
-                                      ? ''
-                                      : anime!.premiered.toString());
-                                } else if (navManager.selectedIndex == 2) {
-                                  return anime?.studios == null
-                                      ? Container()
-                                      : ListView.builder(
-                                          itemCount: anime!.studios!.length,
-                                          itemBuilder: (context, index) {
-                                            return Text(
-                                                anime.studios![index].name);
-                                          });
-                                } else if (navManager.selectedIndex == 3) {
-                                  return ListView.builder(
-                                      itemCount: getThemeSongs(anime!).length,
-                                      itemBuilder: (context, index) {
-                                        return Text(
-                                            getThemeSongs(anime)[index]);
-                                      });
-                                } else if (navManager.selectedIndex == 4) {
-                                  return ListView(
-                                    children: [
-                                      BrowseItem(
-                                        onTap: () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      VoiceActorScreen(
-                                                        id: anime!.id,
-                                                      )));
-                                        },
-                                        title: 'Voice Actors',
-                                        iconData:
-                                            FontAwesomeIcons.microphoneAlt,
+                                    IconBox(
+                                      title: 'Episodes',
+                                      iconData: FontAwesomeIcons.film,
+                                      value: anime?.episodes == null
+                                          ? 'Unknown'
+                                          : anime!.episodes.toString(),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                anime?.genres == null
+                                    ? Container()
+                                    : Wrap(
+                                        spacing: 10,
+                                        children: anime!.genres
+                                            .map((genre) => Chip(
+                                                  label: Text(
+                                                    genre.name,
+                                                    style: TakoTheme
+                                                        .darkTextTheme
+                                                        .subtitle1,
+                                                  ),
+                                                  // backgroundColor: tkDarkGreen,
+                                                ))
+                                            .toList(),
                                       ),
-                                      const SizedBox(
-                                        height: 10,
+                                const Divider(),
+                                Consumer<NavManager>(
+                                  builder: (BuildContext context, navManager,
+                                      Widget? child) {
+                                    return SizedBox(
+                                      height: 40,
+                                      child: ListView(
+                                        controller: _scrollController,
+                                        scrollDirection: Axis.horizontal,
+                                        children: [
+                                          NavItem(
+                                            index: 0,
+                                            onTap: () {
+                                              navManager.goToNav(0);
+                                              _goToElement(0);
+                                            },
+                                            name: 'Synopsis',
+                                            selectedIndex:
+                                                navManager.selectedIndex,
+                                          ),
+                                          const SizedBox(
+                                            width: 20,
+                                          ),
+                                          NavItem(
+                                            index: 1,
+                                            onTap: () {
+                                              navManager.goToNav(1);
+                                              _goToElement(1);
+                                            },
+                                            name: 'Premiered',
+                                            selectedIndex:
+                                                navManager.selectedIndex,
+                                          ),
+                                          const SizedBox(
+                                            width: 20,
+                                          ),
+                                          NavItem(
+                                            index: 2,
+                                            onTap: () {
+                                              navManager.goToNav(2);
+                                              _goToElement(2);
+                                            },
+                                            name: 'Studio',
+                                            selectedIndex:
+                                                navManager.selectedIndex,
+                                          ),
+                                          const SizedBox(
+                                            width: 20,
+                                          ),
+                                          NavItem(
+                                            index: 3,
+                                            onTap: () {
+                                              navManager.goToNav(3);
+                                              _goToElement(3);
+                                            },
+                                            name: 'Theme Songs',
+                                            selectedIndex:
+                                                navManager.selectedIndex,
+                                          ),
+                                          const SizedBox(
+                                            width: 20,
+                                          ),
+                                          NavItem(
+                                            index: 4,
+                                            onTap: () {
+                                              navManager.goToNav(4);
+                                              _goToElement(4);
+                                            },
+                                            name: 'More',
+                                            selectedIndex:
+                                                navManager.selectedIndex,
+                                          ),
+                                        ],
                                       ),
-                                      BrowseItem(
-                                        onTap: () {},
-                                        title: 'Pictures',
-                                        iconData: FontAwesomeIcons.image,
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      BrowseItem(
-                                        onTap: () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      VideoListScreen(
-                                                        id: anime!.id,
-                                                      )));
-                                        },
-                                        title: 'Videos',
-                                        iconData: FontAwesomeIcons.video,
-                                      ),
-                                    ],
-                                  );
-                                } else {
-                                  return Container();
-                                }
-                              },
+                                    );
+                                  },
+                                ),
+                                const SizedBox(height: 10),
+                                Expanded(
+                                  child: Consumer<NavManager>(
+                                    builder: (context, navManager, child) {
+                                      if (navManager.selectedIndex == 0) {
+                                        return SingleChildScrollView(
+                                          child: Text(
+                                            anime?.synopsis == null
+                                                ? ''
+                                                : anime!.synopsis.toString(),
+                                          ),
+                                        );
+                                      } else if (navManager.selectedIndex ==
+                                          1) {
+                                        return Text(anime?.premiered == null
+                                            ? ''
+                                            : anime!.premiered.toString());
+                                      } else if (navManager.selectedIndex ==
+                                          2) {
+                                        return anime?.studios == null
+                                            ? Container()
+                                            : ListView.builder(
+                                                itemCount:
+                                                    anime!.studios!.length,
+                                                itemBuilder: (context, index) {
+                                                  return Text(anime
+                                                      .studios![index].name);
+                                                });
+                                      } else if (navManager.selectedIndex ==
+                                          3) {
+                                        return ListView.builder(
+                                            itemCount:
+                                                getThemeSongs(anime!).length,
+                                            itemBuilder: (context, index) {
+                                              return Text(
+                                                  getThemeSongs(anime)[index]);
+                                            });
+                                      } else if (navManager.selectedIndex ==
+                                          4) {
+                                        return ListView(
+                                          children: [
+                                            BrowseItem(
+                                              onTap: () {
+                                                Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            VoiceActorScreen(
+                                                              id: anime!.id,
+                                                            )));
+                                              },
+                                              title: 'Voice Actors',
+                                              iconData: FontAwesomeIcons
+                                                  .microphoneAlt,
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            BrowseItem(
+                                              onTap: () {},
+                                              title: 'Pictures',
+                                              iconData: FontAwesomeIcons.image,
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            BrowseItem(
+                                              onTap: () {
+                                                Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            VideoListScreen(
+                                                              id: anime!.id,
+                                                            )));
+                                              },
+                                              title: 'Videos',
+                                              iconData: FontAwesomeIcons.video,
+                                            ),
+                                          ],
+                                        );
+                                      } else {
+                                        return Container();
+                                      }
+                                    },
+                                  ),
+                                ),
+                                const SizedBox(height: 20),
+                              ],
                             ),
                           ),
-                          const SizedBox(height: 20),
                         ],
                       ),
                     ),
-                  ],
-                );
-              } else {
-                return Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    CachedNetworkImage(
-                      imageUrl: widget.imageUrl,
-                      fit: BoxFit.cover,
-                    ),
-                    BackdropFilter(
-                      filter: ImageFilter.blur(
-                        sigmaX: 8,
-                        sigmaY: 8,
+                  );
+                } else {
+                  return Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      CachedNetworkImage(
+                        imageUrl: widget.imageUrl,
+                        fit: BoxFit.cover,
                       ),
-                      child: Container(
-                        color: Colors.black87,
-                        width: double.infinity,
-                        height: MediaQuery.of(context).size.height,
+                      BackdropFilter(
+                        filter: ImageFilter.blur(
+                          sigmaX: 8,
+                          sigmaY: 8,
+                        ),
+                        child: Container(
+                          color: Colors.black87,
+                          width: double.infinity,
+                          height: 100.h,
+                        ),
                       ),
-                    ),
-                  ],
-                );
-              }
-            }),
+                    ],
+                  );
+                }
+              }),
+        ),
       ),
     );
   }
@@ -444,7 +473,6 @@ class IconBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // margin: EdgeInsets.all(20),
       padding: const EdgeInsets.all(10),
       child: Column(
         children: [
@@ -465,10 +493,7 @@ class IconBox extends StatelessWidget {
           ),
           Text(
             value,
-            style: const TextStyle(
-              fontSize: 18,
-              color: Colors.white,
-            ),
+            style: TakoTheme.darkTextTheme.headline3,
           ),
         ],
       ),
