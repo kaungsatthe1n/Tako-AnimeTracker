@@ -29,7 +29,7 @@ $ flutter pub get
 
 ## Brief About App
 
-#### API That I use :
+### API That I use :
 
 
 [Jikan (時間) UNOFFICIAL MYANIMELIST API](https://jikan.moe/)
