@@ -6,10 +6,6 @@
 <img src="https://i.pinimg.com/originals/98/1c/d1/981cd18203c866a33869ca348c3d4d0c.png" width ="50">
 <h4 align="center">An Android App to Track Your Favourite Anime in One Place.</h4> <img src="https://i.kym-cdn.com/photos/images/newsfeed/000/863/023/019.png" width="50"></p>
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
 ## Clone Repository
 
 Open Your `Terminal` and `Paste`
@@ -35,7 +31,7 @@ $ flutter pub get
 [Jikan (時間) UNOFFICIAL MYANIMELIST API](https://jikan.moe/)
 
 
-### Dependencies that I used :
+### Dependencies that I use :
 
 
 - [cached_network_image: ^3.1.0+1](https://pub.dev/packages/cached_network_image)
