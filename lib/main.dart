@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 import 'package:tako/provider/navmanager.dart';
 import 'package:tako/provider/tabmanager.dart';
 import 'package:tako/screens/main_screen.dart';
@@ -37,11 +38,13 @@ class MyApp extends StatelessWidget {
           dispose: (_, AnimeService service) => service.client.dispose(),
         ),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Tako Anime Tracker',
-        theme: TakoTheme.dark(),
-        home: const MainScreen(),
+      child: Sizer(
+        builder: (context, orientation, deviceType) => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Tako Anime Tracker',
+          theme: TakoTheme.dark(),
+          home: const MainScreen(),
+        ),
       ),
     );
   }
