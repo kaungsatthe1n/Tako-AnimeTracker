@@ -6,6 +6,7 @@ import 'package:tako/models/anime_model.dart';
 import 'package:tako/services/anime_service.dart';
 import 'package:tako/theme/tako_theme.dart';
 import 'package:tako/util/constant.dart';
+import 'package:sizer/sizer.dart';
 
 class VoiceActorScreen extends StatelessWidget {
   const VoiceActorScreen({Key? key, required this.id}) : super(key: key);
@@ -16,6 +17,7 @@ class VoiceActorScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Voice Actors'),
+        centerTitle: true,
       ),
       body: FutureBuilder<Response<APICharactersResult>>(
           future: Provider.of<AnimeService>(context).getCharacterList(id),
@@ -45,7 +47,7 @@ class VoiceActorScreen extends StatelessWidget {
                               topLeft: Radius.circular(10),
                               bottomLeft: Radius.circular(10)),
                           child: CachedNetworkImage(
-                            width: MediaQuery.of(context).size.width * .4,
+                            width: 40.w,
                             fit: BoxFit.cover,
                             // ignore: unnecessary_null_comparison
                             imageUrl: characters[index].voiceActors.isEmpty
