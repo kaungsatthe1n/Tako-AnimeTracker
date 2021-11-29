@@ -10,7 +10,6 @@
 
 This project is a starting point for a Flutter application.
 
-
 ## Clone Repository
 
 Open Your `Terminal` and `Paste`
@@ -30,17 +29,20 @@ $ flutter pub get
 
 ## Brief About App
 
- ####  API That i use :
+#### API That I use :
+
+```bash
 
 [Jikan (時間) UNOFFICIAL MYANIMELIST API](https://jikan.moe/)
 
+```
 
-Dependencies that I used :
+### Dependencies that I used :
 
+``` bash
 - [cached_network_image: ^3.1.0+1](https://pub.dev/packages/cached_network_image)
-
-- [chopper: ^4.0.3]()
-- [chopper_generator: ^4.0.3](https://pub.dev/packages/chopper)
+- [chopper: ^4.0.3](https://pub.dev/packages/chopper)
+- [chopper_generator: ^4.0.3](https://pub.dev/packages/chopper_generator)
 - [connectivity: ^3.0.6](https://pub.dev/packages/connectivity)
 - [font_awesome_flutter: ^9.2.0](https://pub.dev/packages/font_awesome_flutter)
 - [google_fonts: ^2.1.0](https://pub.dev/packages/google_fonts)
@@ -51,4 +53,4 @@ Dependencies that I used :
 - [sizer: ^2.0.15](https://pub.dev/packages/sizer)
 - [webview_flutter: ^2.3.1](https://pub.dev/packages/webview_flutter)
 - [build_runner: ^2.1.5](https://pub.dev/packages/build_runner)
-
+```
