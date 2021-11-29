@@ -1,17 +1,16 @@
-import 'package:chopper/chopper.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'anime_model.g.dart';
 
 @JsonSerializable()
-class APIAnimeResult {
+class APIAnimeQueryResult {
   List<APIAnime> results;
 
-  APIAnimeResult({required this.results});
+  APIAnimeQueryResult({required this.results});
 
-  factory APIAnimeResult.fromJson(Map<String, dynamic> json) =>
-      _$APIAnimeResultFromJson(json);
-  Map<String, dynamic> toJson() => _$APIAnimeResultToJson(this);
+  factory APIAnimeQueryResult.fromJson(Map<String, dynamic> json) =>
+      _$APIAnimeQueryResultFromJson(json);
+  Map<String, dynamic> toJson() => _$APIAnimeQueryResultToJson(this);
 }
 
 @JsonSerializable()
@@ -181,7 +180,7 @@ class Anime {
   String? synopsis;
   List<Producer> producers;
   List<Studio>? studios;
-  List<Genre> genres;
+  List<APIGenre> genres;
   @JsonKey(name: 'opening_themes')
   List<String> openingThemes;
   @JsonKey(name: 'ending_themes')
@@ -215,17 +214,17 @@ class Anime {
 }
 
 @JsonSerializable()
-class Genre {
+class APIGenre {
   @JsonKey(name: 'mal_id')
   int id;
   String name;
 
-  Genre({
+  APIGenre({
     required this.id,
     required this.name,
   });
-  factory Genre.fromJson(Map<String, dynamic> json) => _$GenreFromJson(json);
-  Map<String, dynamic> toJson() => _$GenreToJson(this);
+  factory APIGenre.fromJson(Map<String, dynamic> json) => _$APIGenreFromJson(json);
+  Map<String, dynamic> toJson() => _$APIGenreToJson(this);
 }
 
 @JsonSerializable()

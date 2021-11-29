@@ -6,14 +6,15 @@ part of 'anime_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-APIAnimeResult _$APIAnimeResultFromJson(Map<String, dynamic> json) =>
-    APIAnimeResult(
+APIAnimeQueryResult _$APIAnimeQueryResultFromJson(Map<String, dynamic> json) =>
+    APIAnimeQueryResult(
       results: (json['results'] as List<dynamic>)
           .map((e) => APIAnime.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$APIAnimeResultToJson(APIAnimeResult instance) =>
+Map<String, dynamic> _$APIAnimeQueryResultToJson(
+        APIAnimeQueryResult instance) =>
     <String, dynamic>{
       'results': instance.results,
     };
@@ -150,7 +151,7 @@ Anime _$AnimeFromJson(Map<String, dynamic> json) => Anime(
           .map((e) => e as String)
           .toList(),
       genres: (json['genres'] as List<dynamic>)
-          .map((e) => Genre.fromJson(e as Map<String, dynamic>))
+          .map((e) => APIGenre.fromJson(e as Map<String, dynamic>))
           .toList(),
       openingThemes: (json['opening_themes'] as List<dynamic>)
           .map((e) => e as String)
@@ -195,12 +196,12 @@ Map<String, dynamic> _$AnimeToJson(Anime instance) => <String, dynamic>{
       'ending_themes': instance.endingThemes,
     };
 
-Genre _$GenreFromJson(Map<String, dynamic> json) => Genre(
+APIGenre _$APIGenreFromJson(Map<String, dynamic> json) => APIGenre(
       id: json['mal_id'] as int,
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$GenreToJson(Genre instance) => <String, dynamic>{
+Map<String, dynamic> _$APIGenreToJson(APIGenre instance) => <String, dynamic>{
       'mal_id': instance.id,
       'name': instance.name,
     };
