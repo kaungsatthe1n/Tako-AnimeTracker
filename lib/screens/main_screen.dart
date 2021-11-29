@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tako/provider/tabmanager.dart';
 import 'package:tako/screens/genre_categories_screen.dart';
-
 import 'package:tako/screens/searched_result_screen.dart';
 import 'package:tako/screens/home_screen.dart';
-import 'package:tako/theme/tako_theme.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -25,7 +23,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Consumer<TabManager>(
       builder: (context, tabManager, _) => Scaffold(
-        resizeToAvoidBottomInset: false,
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             actions: [
               IconButton(
@@ -54,12 +52,6 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 label: 'Genres',
               ),
-              // BottomNavigationBarItem(
-              //   icon: Icon(
-              //     Icons.settings,
-              //   ),
-              //   label: 'Home',
-              // ),
             ],
           ),
           body: IndexedStack(
