@@ -1,92 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
 import 'package:tako/util/constant.dart';
 
 class TakoTheme {
-  static TextTheme lightTextTheme = TextTheme(
-    bodyText1: GoogleFonts.openSans(
-      fontSize: 14.0,
-      fontWeight: FontWeight.w700,
-      color: Colors.black,
-    ),
-    headline1: GoogleFonts.openSans(
-      fontSize: 32.0,
-      fontWeight: FontWeight.bold,
-      color: Colors.black,
-    ),
-    headline2: GoogleFonts.openSans(
-      fontSize: 21.0,
-      fontWeight: FontWeight.w700,
-      color: Colors.black,
-    ),
-    headline3: GoogleFonts.openSans(
-      fontSize: 16.0,
-      fontWeight: FontWeight.w600,
-      color: Colors.black,
-    ),
-    headline6: GoogleFonts.openSans(
-      fontSize: 20.0,
-      fontWeight: FontWeight.w600,
-      color: Colors.black,
-    ),
-  );
-
   static TextTheme darkTextTheme = TextTheme(
     bodyText1: GoogleFonts.lato(
-      fontSize: 14.0,
+      fontSize: 14.0.sp,
+      fontWeight: FontWeight.w700,
+      color: Colors.white,
+    ),
+    subtitle1: GoogleFonts.lato(
+      fontSize: 12.0.sp,
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
     headline1: GoogleFonts.lato(
-      fontSize: 32.0,
+      fontSize: 28.0.sp,
       fontWeight: FontWeight.bold,
       color: Colors.white,
     ),
     headline2: GoogleFonts.lato(
-      fontSize: 21.0,
+      fontSize: 17.0.sp,
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
     headline3: GoogleFonts.lato(
-      fontSize: 16.0,
+      fontSize: 14.0.sp,
       fontWeight: FontWeight.w600,
       color: Colors.white,
       decoration: TextDecoration.none,
     ),
     headline4: GoogleFonts.lato(
-      fontSize: 25.0,
+      fontSize: 21.0.sp,
       fontWeight: FontWeight.w700,
       color: Colors.white,
       decoration: TextDecoration.none,
     ),
     headline6: GoogleFonts.lato(
-      fontSize: 20.0,
+      fontSize: 16.0.sp,
       fontWeight: FontWeight.w600,
       color: Colors.white,
     ),
   );
-
-  static ThemeData light() {
-    return ThemeData(
-      brightness: Brightness.light,
-      checkboxTheme:
-          CheckboxThemeData(fillColor: MaterialStateColor.resolveWith((states) {
-        return Colors.black;
-      })),
-      appBarTheme: const AppBarTheme(
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.white,
-      ),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.black,
-      ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedItemColor: tkLightGreen,
-      ),
-      textTheme: lightTextTheme,
-    );
-  }
 
   static ThemeData dark() {
     return ThemeData(
@@ -108,6 +64,10 @@ class TakoTheme {
         selectedItemColor: tkLightGreen,
         unselectedItemColor: tkGrey,
         backgroundColor: tkDarkBlue,
+      ),
+      checkboxTheme: CheckboxThemeData(
+        checkColor: MaterialStateProperty.all(Colors.black),
+        fillColor: MaterialStateProperty.all(tkLightGreen.withAlpha(205)),
       ),
       textTheme: darkTextTheme,
     );
