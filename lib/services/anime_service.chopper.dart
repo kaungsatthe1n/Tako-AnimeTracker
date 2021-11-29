@@ -17,11 +17,11 @@ class _$AnimeService extends AnimeService {
   final definitionType = AnimeService;
 
   @override
-  Future<Response<APIAnimeResult>> queryAnime(String query) {
+  Future<Response<APIAnimeQueryResult>> queryAnime(String query) {
     final $url = 'https://api.jikan.moe/v3/search/anime?';
     final $params = <String, dynamic>{'q': query};
     final $request = Request('GET', $url, client.baseUrl, parameters: $params);
-    return client.send<APIAnimeResult, APIAnimeResult>($request);
+    return client.send<APIAnimeQueryResult, APIAnimeQueryResult>($request);
   }
 
   @override
@@ -57,5 +57,14 @@ class _$AnimeService extends AnimeService {
     final $url = 'https://api.jikan.moe/v3/anime/${id}/videos';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<APIVideoResult, APIVideoResult>($request);
+  }
+
+  @override
+  Future<Response<APIAnimeQueryResult>> getAnimeListByGenres(
+      int index, List<int> genres) {
+    final $url =
+        'https://api.jikan.moe/v3/search/anime?q=&page=${index}&genre=${genres}&order_by=start_date&sort=desc';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<APIAnimeQueryResult, APIAnimeQueryResult>($request);
   }
 }

@@ -8,7 +8,7 @@ part 'anime_service.chopper.dart';
 @ChopperApi(baseUrl: 'https://api.jikan.moe/v3')
 abstract class AnimeService extends ChopperService {
   @Get(path: 'search/anime?')
-  Future<Response<APIAnimeResult>> queryAnime(
+  Future<Response<APIAnimeQueryResult>> queryAnime(
     @Query('q') String query,
   );
   @Get(path: 'top/anime/{page}/airing')
@@ -26,12 +26,20 @@ abstract class AnimeService extends ChopperService {
   @Get(path: 'anime/{id}/videos')
   Future<Response<APIVideoResult>> getPromoVideo(@Path('id') int id);
 
+  @Get(path: 'search/anime?q=&page={page}&genre={genre}&order_by=start_date&sort=desc')
+  Future<Response<APIAnimeQueryResult>> getAnimeListByGenres(
+    @Path('page') int index,
+    @Path('genre') List<int> genres,
+    // @Part('order_by') String orderBy,
+    // @Part('sort') String sort,
+  );
+
   static AnimeService create() {
     final client = ChopperClient(
       interceptors: [HttpLoggingInterceptor()],
       converter: JsonToTypeConverter({
         APISeasonResult: (jsonData) => APISeasonResult.fromJson(jsonData),
-        APIAnimeResult: (jsonData) => APIAnimeResult.fromJson(jsonData),
+        APIAnimeQueryResult: (jsonData) => APIAnimeQueryResult.fromJson(jsonData),
         APICharactersResult: (jsonData) =>
             APICharactersResult.fromJson(jsonData),
         Anime: (jsonData) => Anime.fromJson(jsonData),
