@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tako/provider/tabmanager.dart';
-import 'package:tako/screens/search_by_genre.dart';
+import 'package:tako/screens/genre_categories_screen.dart';
+
 import 'package:tako/screens/searched_result_screen.dart';
 import 'package:tako/screens/home_screen.dart';
+import 'package:tako/theme/tako_theme.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -14,19 +16,16 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
-    HomeScreen(),
-    Container(),
+    const HomeScreen(),
+    const GenreCategoriesScreen(),
     // Container(),
-
-    // SearchByGenreScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    print('building main');
-
     return Consumer<TabManager>(
       builder: (context, tabManager, _) => Scaffold(
+        resizeToAvoidBottomInset: false,
           appBar: AppBar(
             actions: [
               IconButton(
