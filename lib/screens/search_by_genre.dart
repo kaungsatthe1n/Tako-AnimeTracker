@@ -1,46 +1,90 @@
-// import 'package:flutter/material.dart';
+import 'package:chopper/chopper.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
+import 'package:tako/components/anime_card.dart';
+import 'package:tako/models/anime_model.dart';
+import 'package:tako/models/genre.dart';
+import 'package:tako/services/anime_service.dart';
+import 'package:tako/theme/tako_theme.dart';
 
-// class SearchByGenreScreen extends StatelessWidget {
-//   const SearchByGenreScreen({Key? key}) : super(key: key);
+class SearchByGenreScreen extends StatefulWidget {
+  const SearchByGenreScreen({Key? key, required this.choices})
+      : super(key: key);
+  final List<Genre> choices;
+  @override
+  State<SearchByGenreScreen> createState() => _SearchByGenreScreenState();
+}
 
-//   @override
-//   Widget build(BuildContext context) {
-//     final  size = MediaQuery.of(context).size;
-//     const itemHeight = 100;
-//     final itemWidth = size.width/2;
-//     print(itemWidth/itemHeight);
+class _SearchByGenreScreenState extends State<SearchByGenreScreen> {
+  List<int> getGenreIds() {
+    return widget.choices.map((e) => e.id).toList();
+  }
 
-//     print(genreList.length);
-//     return GridView.builder(
-//       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//         crossAxisCount: 2,
-//         childAspectRatio: (itemWidth/itemHeight),
-//         mainAxisSpacing: 5,
-//         crossAxisSpacing: 5,
-//       ),
-//       itemCount: genreList.length,
-//       itemBuilder: (BuildContext context, int index) {
-//         return Stack(
-//           // alignment: Alignment.center,
-//           // fit: StackFit.expand,
-//           children: [
-//             Container(
-//               alignment: Alignment.center,
-//               width: MediaQuery.of(context).size.width * .5,
-//               height: 100,
-//               child: Text(
-//                 genreList[index].name,
-//                 style: const TextStyle(color: Colors.red, fontSize: 16),
-//               ),
-//             ),
-//             Container(
-//               width: MediaQuery.of(context).size.width * .5,
-//               height: 100,
-//               decoration: BoxDecoration(color: Colors.blue.withOpacity(.5)),
-//             ),
-//           ],
-//         );
-//       },
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    const itemHeight = 300;
+    final itemWidth = 100.w / 2;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Results'),
+        centerTitle: true,
+      ),
+      body: FutureBuilder<Response<APIAnimeQueryResult>>(
+          future: Provider.of<AnimeService>(context)
+              .getAnimeListByGenres(1, getGenreIds()),
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(snapshot.error.toString()),
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              final list = snapshot.data!.body!.results;
+              return Column(
+                children: [
+                  Wrap(
+                    spacing: 15,
+                    children: widget.choices
+                        .map((genre) => Chip(
+                              label: Text(
+                                genre.name,
+                                style: TakoTheme.darkTextTheme.subtitle1,
+                              ),
+                            ))
+                        .toList(),
+                  ),
+                  Expanded(
+                    child: GridView.builder(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: (itemWidth / itemHeight),
+                        mainAxisSpacing: 20,
+                        crossAxisSpacing: 20,
+                      ),
+                      itemCount: list.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return AnimeCard(
+                          itemWidth: itemWidth,
+                          itemHeight: itemHeight,
+                          id: list[index].id,
+                          imageUrl: list[index].imageUrl,
+                          title: list[index].title,
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          }),
+    );
+  }
+}
