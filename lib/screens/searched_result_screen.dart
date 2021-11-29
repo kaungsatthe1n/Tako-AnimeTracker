@@ -19,12 +19,20 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
   bool hasValue = false;
   String value = '';
   final TextEditingController _controller = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: TextField(
+          key: _formKey,
           controller: _controller,
           decoration: InputDecoration(
               prefixIcon: const Icon(
@@ -51,7 +59,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
         ),
       ),
       body: hasValue
-          ? FutureBuilder<Response<APIAnimeResult>>(
+          ? FutureBuilder<Response<APIAnimeQueryResult>>(
               future: Provider.of<AnimeService>(context).queryAnime(value),
               builder: (BuildContext context, snapshot) {
                 if (snapshot.hasError) {
