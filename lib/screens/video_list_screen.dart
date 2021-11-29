@@ -17,6 +17,7 @@ class VideoListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Videos'),
+        centerTitle: true,
       ),
       body: FutureBuilder<Response<APIVideoResult>>(
         future: Provider.of<AnimeService>(context).getPromoVideo(id),
