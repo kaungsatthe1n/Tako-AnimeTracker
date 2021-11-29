@@ -6,11 +6,9 @@
 <img src="https://i.pinimg.com/originals/98/1c/d1/981cd18203c866a33869ca348c3d4d0c.png" width ="50">
 <h4 align="center">An Android App to Track Your Favourite Anime in One Place.</h4> <img src="https://i.kym-cdn.com/photos/images/newsfeed/000/863/023/019.png" width="50"></p>
 
-
 ## Download App
 
- *Coming Soon ...*
-
+_Coming Soon ..._
 
 ## Clone Repository
 
@@ -33,12 +31,9 @@ $ flutter pub get
 
 ### API That I use :
 
-
-[Jikan (時間) UNOFFICIAL MYANIMELIST API](https://jikan.moe/)
-
+[Jikan (時間) UNOFFICIAL MYANIMELIST API](https://jikan.moe/) :cloud:
 
 ### Dependencies that I use :
-
 
 - [cached_network_image: ^3.1.0+1](https://pub.dev/packages/cached_network_image)
 - [chopper: ^4.0.3](https://pub.dev/packages/chopper)
@@ -53,4 +48,3 @@ $ flutter pub get
 - [sizer: ^2.0.15](https://pub.dev/packages/sizer)
 - [webview_flutter: ^2.3.1](https://pub.dev/packages/webview_flutter)
 - [build_runner: ^2.1.5](https://pub.dev/packages/build_runner)
-
