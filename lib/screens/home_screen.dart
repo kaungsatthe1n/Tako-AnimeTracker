@@ -1,15 +1,14 @@
 import 'dart:ui';
-
+import 'package:sizer/sizer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tako/components/anime_card.dart';
 import 'package:tako/models/anime_model.dart';
-import 'package:tako/screens/anime_detail_screen.dart';
 import 'package:tako/services/anime_service.dart';
 import 'package:tako/theme/tako_theme.dart';
 import 'package:tako/util/constant.dart';
-import 'package:tako/util/hero_page_route.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -27,9 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final animeService = Provider.of<AnimeService>(context);
-    final size = MediaQuery.of(context).size;
     const itemHeight = 300;
-    final itemWidth = size.width / 2;
+    final itemWidth = 100.w / 2;
     return FutureBuilder<Response<APISeasonResult>>(
         future: selectedCategory == 1
             ? animeService.getCurrentSeasonList(
@@ -68,7 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       alignment: Alignment.center,
                       child: Text(
                         'Go Back',
-                        style: TakoTheme.lightTextTheme.headline6,
+                        style: TakoTheme.darkTextTheme.headline6!.copyWith(
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   )
@@ -135,75 +135,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     itemCount: list.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return Hero(
-                        tag: list[index].id,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(HeroPageRoute(
-                              builder: (context) => Hero(
-                                tag: list[index].id,
-                                child: AnimeDetailScreen(
-                                  id: list[index].id,
-                                  imageUrl: list[index].imageUrl,
-                                ),
-                              ),
-                            ));
-                          },
-                          child: ClipRRect(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
-                            child: Stack(
-                              fit: StackFit.expand,
-                              children: [
-                                CachedNetworkImage(
-                                  fit: BoxFit.cover,
-                                  width: itemWidth,
-                                  imageUrl: list[index].imageUrl,
-                                ),
-                                Positioned(
-                                  bottom: 0,
-                                  left: 0,
-                                  right: 0,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.zero,
-                                    child: BackdropFilter(
-                                      filter: ImageFilter.blur(
-                                          sigmaX: 10, sigmaY: 10),
-                                      child: Container(
-                                        height: itemHeight * .25,
-                                        alignment: Alignment.center,
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                              alignment: Alignment.center,
-                                              margin:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 10),
-                                              child: Text(
-                                                list[index].title,
-                                                style: TakoTheme
-                                                    .darkTextTheme.headline3,
-                                                overflow: TextOverflow.fade,
-                                                textAlign: TextAlign.center,
-                                                maxLines: 2,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        decoration: const BoxDecoration(
-                                          color: Colors.black54,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
+                      return AnimeCard(
+                          id: list[index].id,
+                          imageUrl: list[index].imageUrl,
+                          title: list[index].title,
+                          itemWidth: itemWidth,
+                          itemHeight: itemHeight);
                     },
                   ),
                 ),
