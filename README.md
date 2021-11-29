@@ -31,15 +31,13 @@ $ flutter pub get
 
 #### API That I use :
 
-```bash
 
 [Jikan (時間) UNOFFICIAL MYANIMELIST API](https://jikan.moe/)
 
-```
 
 ### Dependencies that I used :
 
-``` bash
+
 - [cached_network_image: ^3.1.0+1](https://pub.dev/packages/cached_network_image)
 - [chopper: ^4.0.3](https://pub.dev/packages/chopper)
 - [chopper_generator: ^4.0.3](https://pub.dev/packages/chopper_generator)
@@ -53,4 +51,4 @@ $ flutter pub get
 - [sizer: ^2.0.15](https://pub.dev/packages/sizer)
 - [webview_flutter: ^2.3.1](https://pub.dev/packages/webview_flutter)
 - [build_runner: ^2.1.5](https://pub.dev/packages/build_runner)
-```
+
