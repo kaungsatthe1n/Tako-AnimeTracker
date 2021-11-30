@@ -296,14 +296,6 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                                               height: 10,
                                             ),
                                             BrowseItem(
-                                              onTap: () {},
-                                              title: 'Pictures',
-                                              iconData: FontAwesomeIcons.image,
-                                            ),
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
-                                            BrowseItem(
                                               onTap: () {
                                                 Navigator.of(context).push(
                                                     MaterialPageRoute(
