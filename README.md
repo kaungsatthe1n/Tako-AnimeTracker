@@ -60,3 +60,11 @@ $ flutter pub get
 - [sizer: ^2.0.15](https://pub.dev/packages/sizer)
 - [webview_flutter: ^2.3.1](https://pub.dev/packages/webview_flutter)
 - [build_runner: ^2.1.5](https://pub.dev/packages/build_runner)
+
+## Special Thanks
+
+Thanks to Jikan (時間) API Team for Developing Awesome Open Source Anime API 
+
+## Found This Project Useful ?
+
+You can leave a star :star: at the top-right corner of this repository.  
