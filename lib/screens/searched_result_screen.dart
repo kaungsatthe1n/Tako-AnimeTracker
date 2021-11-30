@@ -160,7 +160,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                                                         .headline2,
                                                   ),
                                                   const SizedBox(
-                                                    height: 10,
+                                                    height: 20,
                                                   ),
                                                   Row(
                                                     mainAxisAlignment:
@@ -181,6 +181,9 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                                                         ),
                                                       ),
                                                     ],
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10,
                                                   ),
                                                 ],
                                               ),
