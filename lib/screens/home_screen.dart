@@ -43,37 +43,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.data!.statusCode == 404) {
-              return Column(
-                children: [
-                  Expanded(
-                    child: Image.asset(
-                      'assets/images/not_found.jpg',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        --currentPage;
-                      });
-                    },
-                    child: Container(
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10)),
-                      width: double.infinity,
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Go Back',
-                        style: TakoTheme.darkTextTheme.headline6!.copyWith(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              );
+              return NoMoreResult(onTap: () {
+                setState(() {
+                  --currentPage;
+                });
+              });
             }
 
             final list = snapshot.data!.body!.top;
@@ -150,7 +124,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     IconButton(
                         onPressed: () {
                           setState(() {
-                            currentPage--;
+                            if (currentPage == 1) {
+                              currentPage = 1;
+                            } else {
+                              currentPage--;
+                            }
+
                             categoryChanged = false;
                           });
                         },
@@ -184,5 +163,56 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
         });
+  }
+
+  void goPrevPage(int index) {
+    if (index <= 0) {
+      index = 1;
+      setState(() {
+        currentPage = index;
+      });
+    }
+  }
+}
+
+class NoMoreResult extends StatelessWidget {
+  const NoMoreResult({
+    Key? key,
+    required this.onTap,
+  }) : super(key: key);
+  final Function()? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            'assets/images/no-results.png',
+            fit: BoxFit.cover,
+            width: 200,
+            height: 200,
+          ),
+          Text(
+            'No More Result ',
+            style: TakoTheme.darkTextTheme.subtitle2,
+          ),
+          SizedBox(
+            height: 15.h,
+          ),
+          MaterialButton(
+            onPressed: onTap,
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            color: tkLightGreen,
+            child: const Text('Go Back'),
+          ),
+        ],
+      ),
+    );
   }
 }
