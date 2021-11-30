@@ -14,15 +14,8 @@
 
 ## ScreenShots
 
-<img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_1.jpg?raw=true" width ="32%">
-<img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_3.jpg?raw=true" width ="32%">
-<img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_4.jpg?raw=true" width ="32%">
-<img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_6.jpg?raw=true" width ="32%">
-<img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_7.jpg?raw=true" width ="32%">
-<img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_8.jpg?raw=true" width ="32%">
-<img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_11.jpg?raw=true" width ="32%">
-<img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_12.jpg?raw=true" width ="32%">
-<img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_13.jpg?raw=true" width ="32%">
+<img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_1.jpg?raw=true" width ="32%"><img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_3.jpg?raw=true" width ="32%">
+<img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_4.jpg?raw=true" width ="32%"><img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_6.jpg?raw=true" width ="32%"><img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_7.jpg?raw=true" width ="32%"><img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_8.jpg?raw=true" width ="32%"><img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_11.jpg?raw=true" width ="32%"><img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_12.jpg?raw=true" width ="32%"><img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/screenshots/photo_13.jpg?raw=true" width ="32%">
 
 
 
