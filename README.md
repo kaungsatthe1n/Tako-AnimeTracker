@@ -8,7 +8,10 @@
 
 ## Download App
 
-_Coming Soon ..._
+[Tako-release.apk](https://github.com/kaungsatthe1n/Tako-AnimeTracker/releases/download/v0.1.1/Tako-release.apk)
+
+_Coming soon for ios user ..._ 
+
 
 ## Clone Repository
 
