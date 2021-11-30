@@ -15,6 +15,10 @@ class TakoTheme {
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
+    subtitle2: GoogleFonts.lato(
+      fontSize: 14.0.sp,
+      color: Colors.white,
+    ),
     headline1: GoogleFonts.lato(
       fontSize: 28.0.sp,
       fontWeight: FontWeight.bold,
