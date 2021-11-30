@@ -4,7 +4,7 @@
 
 <p>
 <img src="https://i.pinimg.com/originals/98/1c/d1/981cd18203c866a33869ca348c3d4d0c.png" width ="50">
-<h4 align="center">An Android App to Track Your Favourite Anime in One Place.</h4> <img src="https://i.kym-cdn.com/photos/images/newsfeed/000/863/023/019.png" width="50"></p>
+<h4 align="center">A Mobile App to Track Your Favourite Anime in One Place.</h4> <img src="https://i.kym-cdn.com/photos/images/newsfeed/000/863/023/019.png" width="50"></p>
 
 ## Download App
 
