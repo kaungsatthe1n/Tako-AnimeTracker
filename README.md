@@ -2,8 +2,9 @@
 
 <p align="center"><a href="https://github.com/kaungsatthe1n/Tako-AnimeTracker"><img src="https://github.com/kaungsatthe1n/Tako-AnimeTracker/blob/main/assets/images/logo-circle.png?raw=true" width="150" height="auto" style="border-radius:60%"></a></p>
 
-
-<img src="https://i.pinimg.com/originals/98/1c/d1/981cd18203c866a33869ca348c3d4d0c.png" width ="50"><h4>A Mobile App to Track Your Favourite Anime in One Place.</h4><img src="https://i.kym-cdn.com/photos/images/newsfeed/000/863/023/019.png" width="50">
+<p>
+<img src="https://i.pinimg.com/originals/98/1c/d1/981cd18203c866a33869ca348c3d4d0c.png" width ="50">
+<h4 align="center">A Mobile App to Track Your Favourite Anime in One Place.</h4> <img src="https://i.kym-cdn.com/photos/images/newsfeed/000/863/023/019.png" width="50"></p>
 
 ## Download App
 
