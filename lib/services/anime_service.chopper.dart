@@ -63,7 +63,7 @@ class _$AnimeService extends AnimeService {
   Future<Response<APIAnimeQueryResult>> getAnimeListByGenres(
       int index, List<int> genres) {
     final $url =
-        'https://api.jikan.moe/v3/search/anime?q=&page=${index}&genre=${genres}&order_by=start_date&sort=desc';
+        'https://api.jikan.moe/v3/search/anime?q=&page=${index}&genre=${genres}&order_by=start_date';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<APIAnimeQueryResult, APIAnimeQueryResult>($request);
   }

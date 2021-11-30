@@ -26,7 +26,7 @@ abstract class AnimeService extends ChopperService {
   @Get(path: 'anime/{id}/videos')
   Future<Response<APIVideoResult>> getPromoVideo(@Path('id') int id);
 
-  @Get(path: 'search/anime?q=&page={page}&genre={genre}&order_by=start_date&sort=desc')
+  @Get(path: 'search/anime?q=&page={page}&genre={genre}&order_by=start_date')
   Future<Response<APIAnimeQueryResult>> getAnimeListByGenres(
     @Path('page') int index,
     @Path('genre') List<int> genres,
