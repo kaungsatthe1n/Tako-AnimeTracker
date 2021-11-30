@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import 'package:tako/provider/connectivitymanager.dart';
 import 'package:tako/provider/navmanager.dart';
 import 'package:tako/provider/tabmanager.dart';
 import 'package:tako/screens/main_screen.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => TabManager()),
         ChangeNotifierProvider(create: (_) => NavManager()),
+        ChangeNotifierProvider(create: (_) => ConnectivityManager()),
         Provider(
           create: (_) => AnimeService.create(),
           dispose: (_, AnimeService service) => service.client.dispose(),
