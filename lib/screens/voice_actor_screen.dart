@@ -50,9 +50,9 @@ class VoiceActorScreen extends StatelessWidget {
                             width: 40.w,
                             fit: BoxFit.cover,
                             // ignore: unnecessary_null_comparison
-                            imageUrl: characters[index].voiceActors.isEmpty
+                            imageUrl: characters[index].voiceActors!.isEmpty
                                 ? 'https://cdn.myanimelist.net/r/42x62/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c'
-                                : characters[index].voiceActors[0].imageUrl,
+                                : characters[index].voiceActors![0].imageUrl!,
                           ),
                         ),
                         Expanded(
@@ -65,7 +65,7 @@ class VoiceActorScreen extends StatelessWidget {
                               children: [
                                 CachedNetworkImage(
                                   width: double.infinity,
-                                  imageUrl: characters[index].imageUrl,
+                                  imageUrl: characters[index].imageUrl!,
                                   fit: BoxFit.cover,
                                 ),
                                 Container(
@@ -77,9 +77,9 @@ class VoiceActorScreen extends StatelessWidget {
                                   left: 10,
                                   child: Text(
                                     // ignore: unnecessary_null_comparison
-                                    characters[index].voiceActors.isEmpty
+                                    characters[index].voiceActors!.isEmpty
                                         ? ''
-                                        : characters[index].voiceActors[0].name,
+                                        : characters[index].voiceActors![0].name!,
                                     style: TakoTheme.darkTextTheme.headline4,
                                   ),
                                 ),
@@ -94,7 +94,7 @@ class VoiceActorScreen extends StatelessWidget {
                                         color: tkLightGreen.withAlpha(170),
                                       ),
                                       child: Text(
-                                        characters[index].name,
+                                        characters[index].name!,
                                         style:
                                             TakoTheme.darkTextTheme.headline2,
                                       ),

@@ -152,7 +152,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                                         children: anime!.genres
                                             .map((genre) => Chip(
                                                   label: Text(
-                                                    genre.name,
+                                                    genre.name!,
                                                     style: TakoTheme
                                                         .darkTextTheme
                                                         .subtitle1,
@@ -264,7 +264,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                                                     anime!.studios!.length,
                                                 itemBuilder: (context, index) {
                                                   return Text(anime
-                                                      .studios![index].name);
+                                                      .studios![index].name!);
                                                 });
                                       } else if (navManager.selectedIndex ==
                                           3) {
@@ -285,7 +285,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             VoiceActorScreen(
-                                                              id: anime!.id,
+                                                              id: anime!.id!,
                                                             )));
                                               },
                                               title: 'Voice Actors',
@@ -301,7 +301,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             VideoListScreen(
-                                                              id: anime!.id,
+                                                              id: anime!.id!,
                                                             )));
                                               },
                                               title: 'Videos',
@@ -431,18 +431,18 @@ class BrowseItem extends StatelessWidget {
 
 List<String> getThemeSongs(Anime anime) {
   List<String> totalResult = [];
-  if (anime.openingThemes.isNotEmpty) {
+  if (anime.openingThemes!.isNotEmpty) {
     totalResult.add('Opening Theme');
     totalResult.add('');
-    for (var val in anime.openingThemes) {
+    for (var val in anime.openingThemes!) {
       totalResult.add(val);
     }
     totalResult.add('');
   }
-  if (anime.endingThemes.isNotEmpty) {
+  if (anime.endingThemes!.isNotEmpty) {
     totalResult.add('Ending Theme');
     totalResult.add('');
-    for (var val in anime.endingThemes) {
+    for (var val in anime.endingThemes!) {
       totalResult.add(val);
     }
   }

@@ -90,17 +90,17 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                       Expanded(
                         child: ListView.builder(
                             // padding: const EdgeInsets.symmetric(vertical: 10),
-                            itemCount: snapshot.data!.body!.results.length,
+                            itemCount: snapshot.data!.body!.results!.length,
                             itemBuilder: (context, index) {
                               final body = snapshot.data!.body;
-                              final anime = body!.results[index];
+                              final anime = body!.results![index];
 
                               return GestureDetector(
                                 onTap: () {
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) => AnimeDetailScreen(
-                                          id: anime.id,
-                                          imageUrl: anime.imageUrl)));
+                                          id: anime.id!,
+                                          imageUrl: anime.imageUrl!)));
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -135,7 +135,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             child: CachedNetworkImage(
-                                              imageUrl: anime.imageUrl,
+                                              imageUrl: anime.imageUrl!,
                                               fit: BoxFit.cover,
                                               width: 100,
                                               height: 150,
@@ -154,7 +154,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                                                     height: 8,
                                                   ),
                                                   Text(
-                                                    anime.title,
+                                                    anime.title!,
                                                     style: TakoTheme
                                                         .darkTextTheme
                                                         .headline2,

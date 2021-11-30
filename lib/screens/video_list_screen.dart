@@ -37,7 +37,7 @@ class VideoListScreen extends StatelessWidget {
                 },
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                itemCount: videos.length,
+                itemCount: videos!.length,
                 itemBuilder: (context, index) {
                   return Container(
                     decoration: BoxDecoration(
@@ -71,7 +71,7 @@ class VideoListScreen extends StatelessWidget {
                               children: [
                                 CachedNetworkImage(
                                   height: 180,
-                                  imageUrl: videos[index].imageUrl,
+                                  imageUrl: videos[index].imageUrl!,
                                   fit: BoxFit.cover,
                                 ),
                                 Positioned(
@@ -86,7 +86,7 @@ class VideoListScreen extends StatelessWidget {
                                               builder: (context) =>
                                                   YouTubeViewScreen(
                                                       url: videos[index]
-                                                          .videoUrl)));
+                                                          .videoUrl!)));
                                     },
                                     child: Container(
                                       decoration: const BoxDecoration(
@@ -111,7 +111,7 @@ class VideoListScreen extends StatelessWidget {
                                                 builder: (context) =>
                                                     YouTubeViewScreen(
                                                         url: videos[index]
-                                                            .videoUrl)));
+                                                            .videoUrl!)));
                                       },
                                       child: const Icon(
                                         Icons.play_circle,
@@ -132,7 +132,7 @@ class VideoListScreen extends StatelessWidget {
                           alignment: Alignment.center,
                           height: 50,
                           child: Text(
-                            videos[index].title,
+                            videos[index].title!,
                             style: TakoTheme.darkTextTheme.headline2,
                           ),
                         ),

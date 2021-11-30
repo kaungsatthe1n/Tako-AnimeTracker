@@ -4,7 +4,7 @@ part 'anime_model.g.dart';
 
 @JsonSerializable()
 class APIAnimeQueryResult {
-  List<APIAnime> results;
+  List<APIAnime>? results;
 
   APIAnimeQueryResult({required this.results});
 
@@ -16,21 +16,21 @@ class APIAnimeQueryResult {
 @JsonSerializable()
 class APIAnime {
   @JsonKey(name: 'mal_id')
-  int id;
-  String url;
+  int? id;
+  String?url;
   @JsonKey(name: 'image_url')
-  String imageUrl;
-  String title;
+  String? imageUrl;
+  String? title;
   bool airing;
-  String type;
-  int episodes;
-  double score;
+  String? type;
+  int? episodes;
+  double? score;
   @JsonKey(name: 'start_date')
-  String startDate;
+  String? startDate;
   @JsonKey(name: 'end_date')
-  String endDate;
-  int members;
-  String rated;
+  String? endDate;
+  int? members;
+  String? rated;
 
   APIAnime({
     required this.id,
@@ -54,7 +54,7 @@ class APIAnime {
 
 @JsonSerializable()
 class APISeasonResult {
-  List<APISeasonAnime> top;
+  List<APISeasonAnime>? top;
 
   APISeasonResult({required this.top});
 
@@ -66,18 +66,18 @@ class APISeasonResult {
 @JsonSerializable()
 class APISeasonAnime {
   @JsonKey(name: 'mal_id')
-  int id;
-  int rank;
-  String title;
-  String url;
+  int? id;
+  int? rank;
+  String? title;
+  String? url;
   @JsonKey(name: 'image_url')
-  String imageUrl;
-  int episodes;
+  String? imageUrl;
+  int? episodes;
   @JsonKey(name: 'start_date')
-  String startDate;
+  String? startDate;
   @JsonKey(name: 'end_date')
-  String endDate;
-  double score;
+  String? endDate;
+  double? score;
 
   APISeasonAnime({
     required this.id,
@@ -111,14 +111,14 @@ class APICharactersResult {
 @JsonSerializable()
 class APICharacter {
   @JsonKey(name: 'mal_id')
-  int id;
-  String url;
+  int? id;
+  String? url;
   @JsonKey(name: 'image_url')
-  String imageUrl;
-  String name;
-  String role;
+  String? imageUrl;
+  String? name;
+  String? role;
   @JsonKey(name: 'voice_actors')
-  List<VoiceActor> voiceActors;
+  List<VoiceActor>? voiceActors;
 
   APICharacter(
       {required this.name,
@@ -136,12 +136,12 @@ class APICharacter {
 @JsonSerializable()
 class VoiceActor {
   @JsonKey(name: 'mal_id')
-  int id;
-  String name;
-  String url;
+  int? id;
+  String? name;
+  String? url;
   @JsonKey(name: 'image_url')
-  String imageUrl;
-  String language;
+  String? imageUrl;
+  String? language;
 
   VoiceActor({
     required this.id,
@@ -159,7 +159,7 @@ class VoiceActor {
 @JsonSerializable()
 class Anime {
   @JsonKey(name: 'mal_id')
-  int id;
+  int? id;
   String? url;
   @JsonKey(name: 'image_url')
   String? imageUrl;
@@ -175,16 +175,16 @@ class Anime {
   String? duration;
   String? rating;
   double? score;
-  int rank;
-  int popularity;
+  int? rank;
+  int? popularity;
   String? synopsis;
-  List<Producer> producers;
+  List<Producer>? producers;
   List<Studio>? studios;
   List<APIGenre> genres;
   @JsonKey(name: 'opening_themes')
-  List<String> openingThemes;
+  List<String>? openingThemes;
   @JsonKey(name: 'ending_themes')
-  List<String> endingThemes;
+  List<String>? endingThemes;
 
   Anime({
     required this.episodes,
@@ -216,8 +216,8 @@ class Anime {
 @JsonSerializable()
 class APIGenre {
   @JsonKey(name: 'mal_id')
-  int id;
-  String name;
+  int? id;
+  String? name;
 
   APIGenre({
     required this.id,
@@ -230,8 +230,8 @@ class APIGenre {
 @JsonSerializable()
 class Studio {
   @JsonKey(name: 'mal_id')
-  int id;
-  String name;
+  int? id;
+  String? name;
 
   Studio({
     required this.name,
@@ -244,8 +244,8 @@ class Studio {
 @JsonSerializable()
 class Producer {
   @JsonKey(name: 'mal_id')
-  int id;
-  String name;
+  int? id;
+  String? name;
 
   Producer({
     required this.id,
@@ -258,7 +258,7 @@ class Producer {
 
 @JsonSerializable()
 class APIVideoResult {
-  List<Promo> promo;
+  List<Promo>? promo;
 
   APIVideoResult({required this.promo});
 
@@ -270,11 +270,11 @@ class APIVideoResult {
 
 @JsonSerializable()
 class Promo {
-  String title;
+  String? title;
   @JsonKey(name: 'image_url')
-  String imageUrl;
+  String? imageUrl;
   @JsonKey(name: 'video_url')
-  String videoUrl;
+  String? videoUrl;
 
   Promo({
     required this.imageUrl,

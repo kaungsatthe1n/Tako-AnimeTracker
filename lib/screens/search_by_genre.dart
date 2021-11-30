@@ -65,14 +65,14 @@ class _SearchByGenreScreenState extends State<SearchByGenreScreen> {
                         mainAxisSpacing: 20,
                         crossAxisSpacing: 20,
                       ),
-                      itemCount: list.length,
+                      itemCount: list!.length,
                       itemBuilder: (BuildContext context, int index) {
                         return AnimeCard(
                           itemWidth: itemWidth,
                           itemHeight: itemHeight,
-                          id: list[index].id,
-                          imageUrl: list[index].imageUrl,
-                          title: list[index].title,
+                          id: list[index].id!,
+                          imageUrl: list[index].imageUrl!,
+                          title: list[index].title!,
                         );
                       },
                     ),

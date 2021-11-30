@@ -107,12 +107,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisSpacing: 20,
                       crossAxisSpacing: 20,
                     ),
-                    itemCount: list.length,
+                    itemCount: list?.length,
                     itemBuilder: (BuildContext context, int index) {
                       return AnimeCard(
-                          id: list[index].id,
-                          imageUrl: list[index].imageUrl,
-                          title: list[index].title,
+                          id: list![index].id!,
+                          imageUrl: list[index].imageUrl!,
+                          title: list[index].title!,
                           itemWidth: itemWidth,
                           itemHeight: itemHeight);
                     },

@@ -8,8 +8,8 @@ part of 'anime_model.dart';
 
 APIAnimeQueryResult _$APIAnimeQueryResultFromJson(Map<String, dynamic> json) =>
     APIAnimeQueryResult(
-      results: (json['results'] as List<dynamic>)
-          .map((e) => APIAnime.fromJson(e as Map<String, dynamic>))
+      results: (json['results'] as List<dynamic>?)
+          ?.map((e) => APIAnime.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -20,18 +20,18 @@ Map<String, dynamic> _$APIAnimeQueryResultToJson(
     };
 
 APIAnime _$APIAnimeFromJson(Map<String, dynamic> json) => APIAnime(
-      id: json['mal_id'] as int,
-      url: json['url'] as String,
+      id: json['mal_id'] as int?,
+      url: json['url'] as String?,
       airing: json['airing'] as bool,
-      endDate: json['end_date'] as String,
-      episodes: json['episodes'] as int,
-      imageUrl: json['image_url'] as String,
-      members: json['members'] as int,
-      rated: json['rated'] as String,
-      score: (json['score'] as num).toDouble(),
-      startDate: json['start_date'] as String,
-      title: json['title'] as String,
-      type: json['type'] as String,
+      endDate: json['end_date'] as String?,
+      episodes: json['episodes'] as int?,
+      imageUrl: json['image_url'] as String?,
+      members: json['members'] as int?,
+      rated: json['rated'] as String?,
+      score: (json['score'] as num?)?.toDouble(),
+      startDate: json['start_date'] as String?,
+      title: json['title'] as String?,
+      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$APIAnimeToJson(APIAnime instance) => <String, dynamic>{
@@ -51,8 +51,8 @@ Map<String, dynamic> _$APIAnimeToJson(APIAnime instance) => <String, dynamic>{
 
 APISeasonResult _$APISeasonResultFromJson(Map<String, dynamic> json) =>
     APISeasonResult(
-      top: (json['top'] as List<dynamic>)
-          .map((e) => APISeasonAnime.fromJson(e as Map<String, dynamic>))
+      top: (json['top'] as List<dynamic>?)
+          ?.map((e) => APISeasonAnime.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -63,15 +63,15 @@ Map<String, dynamic> _$APISeasonResultToJson(APISeasonResult instance) =>
 
 APISeasonAnime _$APISeasonAnimeFromJson(Map<String, dynamic> json) =>
     APISeasonAnime(
-      id: json['mal_id'] as int,
-      endDate: json['end_date'] as String,
-      episodes: json['episodes'] as int,
-      imageUrl: json['image_url'] as String,
-      score: (json['score'] as num).toDouble(),
-      startDate: json['start_date'] as String,
-      title: json['title'] as String,
-      url: json['url'] as String,
-      rank: json['rank'] as int,
+      id: json['mal_id'] as int?,
+      endDate: json['end_date'] as String?,
+      episodes: json['episodes'] as int?,
+      imageUrl: json['image_url'] as String?,
+      score: (json['score'] as num?)?.toDouble(),
+      startDate: json['start_date'] as String?,
+      title: json['title'] as String?,
+      url: json['url'] as String?,
+      rank: json['rank'] as int?,
     );
 
 Map<String, dynamic> _$APISeasonAnimeToJson(APISeasonAnime instance) =>
@@ -101,13 +101,13 @@ Map<String, dynamic> _$APICharactersResultToJson(
     };
 
 APICharacter _$APICharacterFromJson(Map<String, dynamic> json) => APICharacter(
-      name: json['name'] as String,
-      role: json['role'] as String,
-      url: json['url'] as String,
-      imageUrl: json['image_url'] as String,
-      id: json['mal_id'] as int,
-      voiceActors: (json['voice_actors'] as List<dynamic>)
-          .map((e) => VoiceActor.fromJson(e as Map<String, dynamic>))
+      name: json['name'] as String?,
+      role: json['role'] as String?,
+      url: json['url'] as String?,
+      imageUrl: json['image_url'] as String?,
+      id: json['mal_id'] as int?,
+      voiceActors: (json['voice_actors'] as List<dynamic>?)
+          ?.map((e) => VoiceActor.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -122,11 +122,11 @@ Map<String, dynamic> _$APICharacterToJson(APICharacter instance) =>
     };
 
 VoiceActor _$VoiceActorFromJson(Map<String, dynamic> json) => VoiceActor(
-      id: json['mal_id'] as int,
-      imageUrl: json['image_url'] as String,
-      url: json['url'] as String,
-      language: json['language'] as String,
-      name: json['name'] as String,
+      id: json['mal_id'] as int?,
+      imageUrl: json['image_url'] as String?,
+      url: json['url'] as String?,
+      language: json['language'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$VoiceActorToJson(VoiceActor instance) =>
@@ -140,26 +140,26 @@ Map<String, dynamic> _$VoiceActorToJson(VoiceActor instance) =>
 
 Anime _$AnimeFromJson(Map<String, dynamic> json) => Anime(
       episodes: json['episodes'] as int?,
-      id: json['mal_id'] as int,
+      id: json['mal_id'] as int?,
       imageUrl: json['image_url'] as String?,
-      rank: json['rank'] as int,
+      rank: json['rank'] as int?,
       score: (json['score'] as num?)?.toDouble(),
       title: json['title'] as String?,
       url: json['url'] as String?,
       duration: json['duration'] as String?,
-      endingThemes: (json['ending_themes'] as List<dynamic>)
-          .map((e) => e as String)
+      endingThemes: (json['ending_themes'] as List<dynamic>?)
+          ?.map((e) => e as String)
           .toList(),
       genres: (json['genres'] as List<dynamic>)
           .map((e) => APIGenre.fromJson(e as Map<String, dynamic>))
           .toList(),
-      openingThemes: (json['opening_themes'] as List<dynamic>)
-          .map((e) => e as String)
+      openingThemes: (json['opening_themes'] as List<dynamic>?)
+          ?.map((e) => e as String)
           .toList(),
       premiered: json['premiered'] as String?,
-      popularity: json['popularity'] as int,
-      producers: (json['producers'] as List<dynamic>)
-          .map((e) => Producer.fromJson(e as Map<String, dynamic>))
+      popularity: json['popularity'] as int?,
+      producers: (json['producers'] as List<dynamic>?)
+          ?.map((e) => Producer.fromJson(e as Map<String, dynamic>))
           .toList(),
       rating: json['rating'] as String?,
       status: json['status'] as String?,
@@ -197,8 +197,8 @@ Map<String, dynamic> _$AnimeToJson(Anime instance) => <String, dynamic>{
     };
 
 APIGenre _$APIGenreFromJson(Map<String, dynamic> json) => APIGenre(
-      id: json['mal_id'] as int,
-      name: json['name'] as String,
+      id: json['mal_id'] as int?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$APIGenreToJson(APIGenre instance) => <String, dynamic>{
@@ -207,8 +207,8 @@ Map<String, dynamic> _$APIGenreToJson(APIGenre instance) => <String, dynamic>{
     };
 
 Studio _$StudioFromJson(Map<String, dynamic> json) => Studio(
-      name: json['name'] as String,
-      id: json['mal_id'] as int,
+      name: json['name'] as String?,
+      id: json['mal_id'] as int?,
     );
 
 Map<String, dynamic> _$StudioToJson(Studio instance) => <String, dynamic>{
@@ -217,8 +217,8 @@ Map<String, dynamic> _$StudioToJson(Studio instance) => <String, dynamic>{
     };
 
 Producer _$ProducerFromJson(Map<String, dynamic> json) => Producer(
-      id: json['mal_id'] as int,
-      name: json['name'] as String,
+      id: json['mal_id'] as int?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$ProducerToJson(Producer instance) => <String, dynamic>{
@@ -228,8 +228,8 @@ Map<String, dynamic> _$ProducerToJson(Producer instance) => <String, dynamic>{
 
 APIVideoResult _$APIVideoResultFromJson(Map<String, dynamic> json) =>
     APIVideoResult(
-      promo: (json['promo'] as List<dynamic>)
-          .map((e) => Promo.fromJson(e as Map<String, dynamic>))
+      promo: (json['promo'] as List<dynamic>?)
+          ?.map((e) => Promo.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -239,9 +239,9 @@ Map<String, dynamic> _$APIVideoResultToJson(APIVideoResult instance) =>
     };
 
 Promo _$PromoFromJson(Map<String, dynamic> json) => Promo(
-      imageUrl: json['image_url'] as String,
-      title: json['title'] as String,
-      videoUrl: json['video_url'] as String,
+      imageUrl: json['image_url'] as String?,
+      title: json['title'] as String?,
+      videoUrl: json['video_url'] as String?,
     );
 
 Map<String, dynamic> _$PromoToJson(Promo instance) => <String, dynamic>{
