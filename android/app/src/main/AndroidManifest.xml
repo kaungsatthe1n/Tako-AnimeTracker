@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tako">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="tako"
+        android:label="Tako Anime Tracker"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
