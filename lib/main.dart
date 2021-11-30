@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
         Provider(
           create: (_) => AnimeService.create(),
           dispose: (_, AnimeService service) => service.client.dispose(),
+          
         ),
       ],
       child: Sizer(
