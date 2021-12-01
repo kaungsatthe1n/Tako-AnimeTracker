@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    navigateMainScreen();
+    navigateToMainScreen();
   }
 
   @override
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.dispose();
   }
 
-  navigateMainScreen() async {
+  navigateToMainScreen() async {
     await Future.delayed(const Duration(milliseconds: 1500));
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => const MainScreen()));
