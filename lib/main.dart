@@ -3,12 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-import 'package:tako/provider/connectivitymanager.dart';
-import 'package:tako/provider/navmanager.dart';
-import 'package:tako/provider/tabmanager.dart';
-import 'package:tako/screens/main_screen.dart';
-import 'package:tako/services/anime_service.dart';
-import 'package:tako/theme/tako_theme.dart';
+import './provider/connectivitymanager.dart';
+import './provider/navmanager.dart';
+import './provider/tabmanager.dart';
+import './screens/splash_screen.dart';
+import './services/anime_service.dart';
+import './theme/tako_theme.dart';
 
 void main() {
   _setUpLogging();
@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
         Provider(
           create: (_) => AnimeService.create(),
           dispose: (_, AnimeService service) => service.client.dispose(),
-          
         ),
       ],
       child: Sizer(
@@ -46,7 +45,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Tako Anime Tracker',
           theme: TakoTheme.dark(),
-          home: const MainScreen(),
+          home: const SplashScreen(),
         ),
       ),
     );
