@@ -7,6 +7,7 @@ import 'package:tako/models/anime_model.dart';
 import 'package:tako/models/genre.dart';
 import 'package:tako/services/anime_service.dart';
 import 'package:tako/theme/tako_theme.dart';
+import 'package:tako/util/constant.dart';
 
 class SearchByGenreScreen extends StatefulWidget {
   const SearchByGenreScreen({Key? key, required this.choices})
@@ -21,6 +22,8 @@ class _SearchByGenreScreenState extends State<SearchByGenreScreen> {
     return widget.choices.map((e) => e.id).toList();
   }
 
+  int currentPage = 1;
+
   @override
   Widget build(BuildContext context) {
     const itemHeight = 300;
@@ -33,7 +36,7 @@ class _SearchByGenreScreenState extends State<SearchByGenreScreen> {
       ),
       body: FutureBuilder<Response<APIAnimeQueryResult>>(
           future: Provider.of<AnimeService>(context)
-              .getAnimeListByGenres(1, getGenreIds()),
+              .getAnimeListByGenres(currentPage, getGenreIds()),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return Center(
@@ -75,6 +78,51 @@ class _SearchByGenreScreenState extends State<SearchByGenreScreen> {
                           title: list[index].title!,
                         );
                       },
+                    ),
+                  ),
+                  Container(
+                    color: tkDarkBlue,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Prev',
+                          style: TakoTheme.darkTextTheme.subtitle1,
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              setState(() {
+                                if (currentPage == 1) {
+                                  currentPage = 1;
+                                } else {
+                                  currentPage--;
+                                }
+                              });
+                            },
+                            icon: const Icon(
+                              Icons.keyboard_arrow_left_outlined,
+                              size: 25,
+                              color: tkLightGreen,
+                            )),
+                        const SizedBox(
+                          width: 80,
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              setState(() {
+                                currentPage++;
+                              });
+                            },
+                            icon: const Icon(
+                              Icons.keyboard_arrow_right_outlined,
+                              size: 25,
+                              color: tkLightGreen,
+                            )),
+                        Text(
+                          'Next',
+                          style: TakoTheme.darkTextTheme.subtitle1,
+                        ),
+                      ],
                     ),
                   ),
                 ],
