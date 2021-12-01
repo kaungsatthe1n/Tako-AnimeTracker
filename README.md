@@ -6,7 +6,7 @@
 
 ## Download App
 
-- #### Android : [Tako-release.apk](https://github.com/kaungsatthe1n/Tako-AnimeTracker/releases/download/v0.1.1/Tako-release.apk)
+- #### Android : [Tako-release.apk](https://github.com/kaungsatthe1n/Tako-AnimeTracker/releases/download/v0.1.2/Tako-release.apk)
 
 - #### IOS : _Coming soon ..._ 
 
