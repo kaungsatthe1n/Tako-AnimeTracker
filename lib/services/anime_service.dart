@@ -34,7 +34,7 @@ abstract class AnimeService extends ChopperService implements Repository {
   Future<Response<APIVideoResult>> getPromoVideo(@Path('id') int id);
 
   @override
-  @Get(path: 'search/anime?q=&page={page}&genre={genre}&order_by=start_date')
+  @Get(path: 'search/anime?q=&page={page}&genre={genre}&order_by=start_date&sort=desc')
   Future<Response<APIAnimeQueryResult>> getAnimeListByGenres(
     @Path('page') int index,
     @Path('genre') List<int> genres,
