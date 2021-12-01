@@ -59,15 +59,24 @@ class _GenreCategoriesScreenState extends State<GenreCategoriesScreen> {
             },
             controller: _controller,
             cursorColor: tkLightGreen,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               border: InputBorder.none,
-              prefixIcon: Icon(
+              prefixIcon: const Icon(
                 Icons.search,
                 color: Colors.grey,
               ),
-              suffixIcon: Icon(
-                Icons.clear,
-                color: Colors.grey,
+              suffixIcon: IconButton(
+                icon: const Icon(
+                  Icons.clear,
+                  color: Colors.grey,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _controller.clear();
+                    newList = genreList;
+                    FocusScope.of(context).unfocus();
+                  });
+                },
               ),
               hintText: 'Search Genre',
             ),
