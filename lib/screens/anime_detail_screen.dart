@@ -1,12 +1,10 @@
 import 'dart:convert';
 import 'dart:ui';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:sizer/sizer.dart';
 import 'package:tako/models/anime_model.dart';
 import 'package:tako/provider/navmanager.dart';
 import 'package:tako/screens/video_list_screen.dart';
@@ -64,7 +62,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
 
                   return SingleChildScrollView(
                     child: SizedBox(
-                      height: 100.h,
+                      height: screenHeight,
                       child: Stack(
                         fit: StackFit.expand,
                         children: [
@@ -82,7 +80,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                             child: Container(
                               color: Colors.black87,
                               width: double.infinity,
-                              height: 100.h,
+                              height: screenHeight,
                             ),
                           ),
                           Positioned(
@@ -339,7 +337,7 @@ class _AnimeDetailScreenState extends State<AnimeDetailScreen> {
                         child: Container(
                           color: Colors.black87,
                           width: double.infinity,
-                          height: 100.h,
+                          height: screenHeight,
                         ),
                       ),
                     ],

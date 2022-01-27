@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: non_constant_identifier_names
 Color HexColor(String hex) => Color(int.parse('0xFF$hex'));
@@ -11,3 +12,5 @@ const Color tkLightGreen = Color(0xFF28B67E);
 
 const Color tkGrey = Color(0xFFD3DCDE);
 const Color tkwhite = Color(0xFFECE9E9);
+final screenWidth = ScreenUtil().screenWidth;
+final screenHeight = ScreenUtil().screenHeight;

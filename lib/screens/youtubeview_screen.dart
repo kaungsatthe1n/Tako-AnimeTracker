@@ -1,6 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:tako/util/constant.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class YouTubeViewScreen extends StatefulWidget {
@@ -12,6 +13,24 @@ class YouTubeViewScreen extends StatefulWidget {
 }
 
 class _YouTubeViewScreenState extends State<YouTubeViewScreen> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight
+    ]);
+  }
+
+  @override
+  void dispose() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+    super.dispose();
+  }
+
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
   @override
@@ -22,12 +41,15 @@ class _YouTubeViewScreenState extends State<YouTubeViewScreen> {
       ),
       body: Builder(
         builder: (BuildContext context) {
-          return WebView(
-            initialUrl: widget.url,
-            javascriptMode: JavascriptMode.unrestricted,
-            onWebViewCreated: (WebViewController webviewctrl) {
-              _controller.complete(webviewctrl);
-            },
+          return SizedBox.fromSize(
+            size: Size(screenWidth, screenHeight),
+            child: WebView(
+              initialUrl: widget.url,
+              javascriptMode: JavascriptMode.unrestricted,
+              onWebViewCreated: (WebViewController webviewctrl) {
+                _controller.complete(webviewctrl);
+              },
+            ),
           );
         },
       ),

@@ -1,7 +1,6 @@
 import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sizer/sizer.dart';
 import 'package:tako/components/anime_card.dart';
 import 'package:tako/models/anime_model.dart';
 import 'package:tako/models/genre.dart';
@@ -27,7 +26,7 @@ class _SearchByGenreScreenState extends State<SearchByGenreScreen> {
   @override
   Widget build(BuildContext context) {
     const itemHeight = 300;
-    final itemWidth = 100.w / 2;
+    final itemWidth = screenWidth / 2;
 
     return Scaffold(
       appBar: AppBar(

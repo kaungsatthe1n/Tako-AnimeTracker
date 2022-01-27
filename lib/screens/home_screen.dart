@@ -1,6 +1,4 @@
 import 'dart:ui';
-import 'package:sizer/sizer.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chopper/chopper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final animeService = Provider.of<AnimeService>(context);
     const itemHeight = 300;
-    final itemWidth = 100.w / 2;
+    final itemWidth = screenWidth / 2;
     return FutureBuilder<Response<APISeasonResult>>(
         future: selectedCategory == 1
             ? animeService.getCurrentSeasonList(
@@ -200,7 +198,7 @@ class NoMoreResult extends StatelessWidget {
             style: TakoTheme.darkTextTheme.subtitle2,
           ),
           SizedBox(
-            height: 15.h,
+            height: screenHeight * .15,
           ),
           MaterialButton(
             onPressed: onTap,

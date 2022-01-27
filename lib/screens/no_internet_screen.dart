@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 import 'package:tako/theme/tako_theme.dart';
 import 'package:tako/util/constant.dart';
 
@@ -14,26 +13,26 @@ class NoInternetScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
+          const Icon(
             Icons.wifi_off_rounded,
-            size: 80.sp,
+            size: 80,
           ),
-          SizedBox(height: 3.h),
+          const SizedBox(height: 3),
           Text(
             'Oops !',
             style: TakoTheme.darkTextTheme.headline1,
           ),
-          SizedBox(height: 5.h),
+          const SizedBox(height: 15),
           Text(
             'There is no internet connection',
             style: TakoTheme.darkTextTheme.subtitle2,
           ),
-          SizedBox(height: 02.h),
+          const SizedBox(height: 10),
           Text(
             'Please check your internet connection',
             style: TakoTheme.darkTextTheme.subtitle2,
           ),
-          SizedBox(height: 05.h),
+          const SizedBox(height: 15),
           MaterialButton(
             onPressed: () {},
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),

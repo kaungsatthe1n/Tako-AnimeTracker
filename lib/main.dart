@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
-import 'package:sizer/sizer.dart';
 import './provider/connectivitymanager.dart';
 import './provider/navmanager.dart';
 import './provider/tabmanager.dart';
@@ -10,12 +10,14 @@ import './screens/splash_screen.dart';
 import './services/anime_service.dart';
 import './theme/tako_theme.dart';
 
-void main() {
+void main() async {
   _setUpLogging();
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
+  await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
-  ]).then((_) => runApp(const MyApp()));
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(const MyApp());
 }
 
 void _setUpLogging() {
@@ -40,8 +42,15 @@ class MyApp extends StatelessWidget {
           dispose: (_, AnimeService service) => service.client.dispose(),
         ),
       ],
-      child: Sizer(
-        builder: (context, orientation, deviceType) => MaterialApp(
+      child: ScreenUtilInit(
+        designSize: const Size(360, 690),
+        builder: () => MaterialApp(
+          builder: (context, widget) {
+            ScreenUtil.setContext(context);
+            return MediaQuery(
+                data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                child: widget!);
+          },
           debugShowCheckedModeBanner: false,
           title: 'Tako Anime Tracker',
           theme: TakoTheme.dark(),

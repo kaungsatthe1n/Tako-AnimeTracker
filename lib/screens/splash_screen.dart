@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 import 'package:tako/screens/main_screen.dart';
 import 'package:tako/util/constant.dart';
 
@@ -36,15 +35,15 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             alignment: Alignment.center,
             decoration: const BoxDecoration(color: tkDarkerBlue),
-            width: 100.w,
-            height: 80.h,
+            width: screenWidth,
+            height: screenHeight * .8,
             child: Image.asset(
               'assets/images/logo-nobackground.png',
-              width: 50.w,
+              width: screenWidth * .5,
             ),
           ),
           Container(
-            width: 40.w,
+            width: screenWidth * .4,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
             child: const LinearProgressIndicator(
               backgroundColor: Colors.grey,

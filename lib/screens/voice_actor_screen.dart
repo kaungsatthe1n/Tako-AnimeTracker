@@ -6,7 +6,6 @@ import 'package:tako/models/anime_model.dart';
 import 'package:tako/services/anime_service.dart';
 import 'package:tako/theme/tako_theme.dart';
 import 'package:tako/util/constant.dart';
-import 'package:sizer/sizer.dart';
 
 class VoiceActorScreen extends StatelessWidget {
   const VoiceActorScreen({Key? key, required this.id}) : super(key: key);
@@ -47,7 +46,7 @@ class VoiceActorScreen extends StatelessWidget {
                               topLeft: Radius.circular(10),
                               bottomLeft: Radius.circular(10)),
                           child: CachedNetworkImage(
-                            width: 40.w,
+                            width: screenWidth * .4,
                             fit: BoxFit.cover,
                             // ignore: unnecessary_null_comparison
                             imageUrl: characters[index].voiceActors!.isEmpty
@@ -79,7 +78,9 @@ class VoiceActorScreen extends StatelessWidget {
                                     // ignore: unnecessary_null_comparison
                                     characters[index].voiceActors!.isEmpty
                                         ? ''
-                                        : characters[index].voiceActors![0].name!,
+                                        : characters[index]
+                                            .voiceActors![0]
+                                            .name!,
                                     style: TakoTheme.darkTextTheme.headline4,
                                   ),
                                 ),

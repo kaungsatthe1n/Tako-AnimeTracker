@@ -1,48 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sizer/sizer.dart';
 import 'package:tako/util/constant.dart';
 
 class TakoTheme {
-  static TextTheme darkTextTheme = TextTheme(
-    bodyText1: GoogleFonts.lato(
-      fontSize: 14.0.sp,
+  static TextTheme darkTextTheme = const TextTheme(
+    bodyText1: TextStyle(
+      fontSize: 14.0,
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
-    subtitle1: GoogleFonts.lato(
-      fontSize: 12.0.sp,
+    subtitle1: TextStyle(
+      fontSize: 12.0,
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
-    subtitle2: GoogleFonts.lato(
-      fontSize: 14.0.sp,
+    subtitle2: TextStyle(
+      fontSize: 14.0,
       color: Colors.white,
     ),
-    headline1: GoogleFonts.lato(
-      fontSize: 28.0.sp,
+    headline1: TextStyle(
+      fontSize: 24.0,
       fontWeight: FontWeight.bold,
       color: Colors.white,
     ),
-    headline2: GoogleFonts.lato(
-      fontSize: 17.0.sp,
+    headline2: TextStyle(
+      fontSize: 17.0,
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
-    headline3: GoogleFonts.lato(
-      fontSize: 14.0.sp,
+    headline3: TextStyle(
+      fontSize: 14.0,
       fontWeight: FontWeight.w600,
       color: Colors.white,
       decoration: TextDecoration.none,
     ),
-    headline4: GoogleFonts.lato(
-      fontSize: 21.0.sp,
+    headline4: TextStyle(
+      fontSize: 21.0,
       fontWeight: FontWeight.w700,
       color: Colors.white,
       decoration: TextDecoration.none,
     ),
-    headline6: GoogleFonts.lato(
-      fontSize: 16.0.sp,
+    headline6: TextStyle(
+      fontSize: 16.0,
       fontWeight: FontWeight.w600,
       color: Colors.white,
     ),
@@ -74,6 +73,7 @@ class TakoTheme {
         fillColor: MaterialStateProperty.all(tkLightGreen.withAlpha(205)),
       ),
       textTheme: darkTextTheme,
+      fontFamily: GoogleFonts.poppins().fontFamily,
     );
   }
 }
